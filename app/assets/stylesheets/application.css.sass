@@ -1,5 +1,10 @@
-@import "bootstrap-sprockets";
-@import "bootstrap";
+@import "bootstrap-sprockets"
+@import "bootstrap"
+
+$student: #FFBC42
+$company: #D81159
+$browse: #218380
+
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
@@ -15,3 +20,33 @@
  *= require_tree .
  *= require_self
  */
+
+#home
+
+  text-align: center
+  margin-top: 20px
+
+  .btn
+    margin: 5px
+    padding: 20px
+
+  .student
+    background-color: $student
+    color: white
+
+    i
+      font-size: 100px
+
+  .company
+    background-color: $company
+    color: white
+
+    i
+      font-size: 100px
+
+  .browse
+    background-color: $browse
+    color: white
+
+    i
+      font-size: 100px
