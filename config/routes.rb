@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
-  get 'test/index'
-  
+  get 'pages/start'
+
+  resources :proposals
+
+  root 'pages#start'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
