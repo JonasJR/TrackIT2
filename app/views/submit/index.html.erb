@@ -2,11 +2,24 @@
   <div class="jumbotron">
 <h2>Submit It</h2>
 <br>
-<%= form_for @submit do |f| %>
-  <%= f.label :description %>
-  <%= f.text_area :description %>
+
+<%= form_for @submit, :html => {:class => "form-horizontal center"} do |f| %>
+<div class="form-group">
+  <%= f.label :title, "Title: ", class: "col-md-2 control-label" %>
+  <div class="col-md-8">
+  <%= f.text_field :name, class: "form-control" %>
+</div>
+</div>
+<br>
+  <div class="form-group">
+  <%= f.label :description, "Description: ", class: "col-md-2 control-label"%>
+  <div class="col-md-8">
+  <%= f.text_area :description, class: "form-control" %>
+</div>
+</div>
   <br>
-  <%= f.submit %>
+  <%= f.submit "Submit", class: "btn btn-default btn-primary" %>
 <% end %>
+
 </div>
 </div>
