@@ -9,25 +9,24 @@
 </head>
 <body>
 
-<div class="container">
-  <div class="navbar-header">
+  <div class="container">
+    <div class="navbar-header">
 
-  <a class="navbar-brand" href="/">TrackIT</a>
-  <ul class="nav navbar-nav">
+      <a class="navbar-brand" href="/">TrackIT</a>
+      <ul class="nav navbar-nav">
 
-    <li class="<%= is_active?('/') %>"><%= link_to "Home", '/' %></li>
-    <li class="<%= is_active?('/proposals/new') %>"><%= link_to "Submit", '/proposals/new' %></li>
-    <li class="<%= is_active?('/proposals') %>"><%= link_to "Browse", '/proposals' %></li>
-
-  </ul>
-</div>
-  <div class="jumbotron">
-    <% flash.each do |key, value| %>
+        <li class="<%= is_active?('/') %>"><%= link_to "Home", '/' %></li>
+        <li class="<%= is_active?('/proposals/new') %>"><%= link_to "Submit", '/proposals/new' %></li>
+        <li class="<%= is_active?('/proposals') %>"><%= link_to "Browse", '/proposals' %></li>
+      </ul>
+    </div>
+    <div class="jumbotron">
+      <% flash.each do |key, value| %>
       <div class="alert alert-<%= key %>"><%= value %></div>
-    <% end %>
-  <%= yield %>
-</div>
-</div>
+      <% end %>
+      <%= yield %>
+    </div>
+  </div>
 
 </body>
 </html>

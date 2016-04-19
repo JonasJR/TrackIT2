@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160419083649) do
+ActiveRecord::Schema.define(version: 20160418122645) do
 
   create_table "proposals", force: :cascade do |t|
     t.integer  "user_id"
@@ -19,12 +19,6 @@ ActiveRecord::Schema.define(version: 20160419083649) do
     t.text     "description"
     t.string   "category"
     t.string   "course"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
-
-  create_table "submits", force: :cascade do |t|
-    t.text     "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
