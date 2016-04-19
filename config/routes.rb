@@ -1,10 +1,8 @@
 Rails.application.routes.draw do
-  get 'submit/index'
-
+  
   get 'pages/start'
 
   resources :proposals
-  resources :submit
 
   root 'pages#start'
 
