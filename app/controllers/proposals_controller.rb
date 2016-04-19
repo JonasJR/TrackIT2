@@ -6,10 +6,6 @@ class ProposalsController < ApplicationController
 
   def new
     @newproposal = Proposal.new
-
-    def create
-      @newproposal = Proposal.new(params)
-
 end
 
 end
