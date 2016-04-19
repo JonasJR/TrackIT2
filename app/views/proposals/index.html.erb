@@ -1,24 +1,28 @@
 <div id="browse">
-    <div class="jumbotron">
-        <h2>Browse
-            <span>I</span>t</h2>
-        <table class="table table-hover" id="browse-proposals">
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Description</th>
-                    <th>Category</th>
-                </tr>
-            </thead>
-            <tbody>
-                <% @proposals.each do |p|%>
-                <tr>
-                    <td><%=p.name%></td>
-                    <td><%=p.description%></td>
-                    <td><%=p.category%></td>
-                </tr>
-                <%end%>
-            </tbody>
-        </table>
-    </div>
+    <h2>Browse
+        <span>I</span>t</h2>
+    <table class="table table-hover" id="browse-proposals">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Category</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @proposals.each do |p| %>
+            <tr data-link="<%= link_to proposals_path(p) do %>">
+                <td><%= p.name %></td>
+                <td><%= p.description %></td>
+                <td><%= p.category %></td>
+            </tr>
+            <% end %>
+            <% end %>
+        </tbody>
+    </table>
 </div>
+<script type="text/javascript">
+$("tr").click(function() {
+  window.location = $(this).data("link")
+});
+</script>
