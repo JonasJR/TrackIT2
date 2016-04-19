@@ -1,4 +1,6 @@
-<h2>Submit</h2>
+<div id="submit">
+  <div class="jumbotron">
+<h2>Submit It</h2>
 <br>
 <%= form_for @submit do |f| %>
   <%= f.label :description %>
@@ -6,18 +8,5 @@
   <br>
   <%= f.submit %>
 <% end %>
-
-
-<div id="submit">
-  <form role="form">
-    <div class="form-group">
-    <label for="title">Title: </label>
-    <input class="form-control" id="title">
-  </div>
-  <div class="form-group">
-    <label for="proposal">Proposal: </label>
-    <input class="form-control" id="proposal">
-  </div>
-  <button type="submit" class="btn btn-default">Submit</button>
-  </form>
+</div>
 </div>
