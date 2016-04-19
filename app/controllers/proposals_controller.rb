@@ -23,7 +23,7 @@ end
 private
 
 def proposal_params
-  params.require(:proposal).permit(:name, :description)
+  params.require(:proposal).permit(:name, :description, :category, :course)
 end
 
 end
