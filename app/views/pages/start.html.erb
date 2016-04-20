@@ -1,17 +1,31 @@
 <div id="home">
     <h1>Track<span>I</span>t</h1>
     <p class="lead">- proposals that makes people land on Mars</p>
+    <p class="submitted-before">Have you submitted before? Click
+        <%=link_to :new_proposal do %>here<%end%>
+        to login!</p>
     <div class="row">
-      <div class="col-sm-12">
-        <%=link_to :new_proposal do %>
-        <button class="btn btn-large student"><i class="glyphicon glyphicon-education"></i><br><hr>Student submit</button>
-        <%end%>
-        <%=link_to :new_proposal do %>
-        <button class="btn btn-large company"><i class="glyphicon glyphicon-briefcase"></i><br><hr>Company submit</button>
-        <%end%>
-        <%=link_to :proposals do %>
-          <button class="btn btn-large browse"><i class="glyphicon glyphicon-search"></i><br><hr>Browse proposals</button>
-        <% end %>
-      </div>
+        <div class="col-sm-12">
+            <%=link_to :new_proposal do %>
+            <button class="btn btn-large student">
+                <i class="glyphicon glyphicon-education"></i><br><hr>Student submit</button>
+            <%end%>
+            <%=link_to :new_proposal do %>
+            <button class="btn btn-large company">
+                <i class="glyphicon glyphicon-briefcase"></i><br><hr>Company submit</button>
+            <%end%>
+            <%=link_to :proposals do %>
+            <button class="btn btn-large browse">
+                <i class="glyphicon glyphicon-search"></i><br><hr>Browse proposals</button>
+            <% end %>
+        </div>
     </div>
 </div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var back = ["#8F2D56", "#218380", "#D81159", "#FFBC42"];
+        var rand = back[Math.floor(Math.random() * back.length)];
+        console.log(rand);
+        $('span').css('color', rand);
+    });
+</script>
