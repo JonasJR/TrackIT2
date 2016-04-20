@@ -6,6 +6,7 @@ class CreateProposals < ActiveRecord::Migration
       t.text :description
       t.string :category
       t.string :course
+      t.string :company
       t.timestamps null: false
     end
   end
