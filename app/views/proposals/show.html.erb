@@ -1,2 +1,11 @@
 <h1><%= @proposal.name %></h1>
-<p class="lead"><%= @proposal.description %></p>
+<small>By Jerry pedersen</small>
+<hr>
+<div class="row">
+  <div class="col-md-1">
+    <strong>Description</strong>
+  </div>
+  <div class="col-md-11">
+    <%= @proposal.description %>
+  </div>
+</div>
