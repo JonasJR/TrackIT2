@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>TrackIT2</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+  <head>
+    <title>TrackIT2</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
 
+<<<<<<< HEAD
   <div class="container">
 
     <%= render 'layouts/navigation' %>
@@ -21,6 +22,29 @@
     </div>
     
   </div>
+=======
+    <div class="container">
+      <%= render 'layouts/login_modal' %>
+      <div class="navbar-header">
 
-</body>
+        <a class="navbar-brand" href="/">Track
+          <span>I</span>t</a>
+        <ul class="nav navbar-nav">
+
+          <li class="<%= is_active?('/') %>"><%= link_to "Home", '/' %></li>
+          <li class="<%= is_active?('/proposals/new') %>"><%= link_to "Submit", '/proposals/new' %></li>
+          <li class="<%= is_active?('/proposals') %>"><%= link_to "Browse", '/proposals' %></li>
+        </ul>
+      </div>
+      <div class="jumbotron">
+        <% flash.each do |key, value| %>
+        <div class="alert alert-<%= key %>"><%= value %></div>
+        <% end %>
+        <%= yield %>
+      </div>
+
+    </div>
+>>>>>>> morre
+
+  </body>
 </html>
