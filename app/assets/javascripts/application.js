@@ -12,5 +12,21 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require bootstrap-sprockets
 //= require turbolinks
 //= require_tree .
+
+
+$(document).ready(function() {
+  $('a[data-toggle="tab"]').on('click.bs.tab', function(e) {
+    activaTab('aaa');
+  });
+
+  $('.forgetpass-tab').on("click.bs.tab", function(e) {
+    activaTab('ccc');
+  });
+});
+
+function activaTab(tab) {
+  $('.nav-tabs a[href="#' + tab + '"]').tab('show');
+};
