@@ -29,26 +29,30 @@
               <div role="tabpanel" class="tab-pane active text-center" id="aaa">
                 &nbsp;&nbsp;
                 <span id="login_fail" class="response_error" style="display: none;">Loggin failed, please try again.</span>
-                <form id="login-form">
-                  <div class="form-group">
-                    <div class="input-group">
-                      <div class="input-group-addon">
-                        <i class="fa fa-user"></i>
+                  <%= form_for(resource, as: resource_name, url: session_path(resource_name), id: 'login-form') do |f| %>
+                    <div class="form-group">
+                      <div class="input-group">
+                        <div class="input-group-addon">
+                          <i class="fa fa-user"></i>
+                        </div>
+                        <%= f.email_field :email, autofocus: true, class: 'form-control', placeholder: 'Enter your email' %>
                       </div>
-                      <input type="text" class="form-control" id="login_username" placeholder="Username">
                     </div>
-                    <span class="help-block has-error" id="email-error"></span>
-                  </div>
-                  <div class="form-group">
-                    <div class="input-group">
-                      <div class="input-group-addon">
-                        <i class="fa fa-lock"></i>
+                    <div class="form-group">
+                      <div class="input-group">
+                        <div class="input-group-addon">
+                          <i class="fa fa-user">
+                          </i>
+                        </div>
+                        <%= f.password_field :password, class: 'form-control', placeholder: 'Enter password' %>
                       </div>
-                      <input type="password" class="form-control" id="password" placeholder="Password">
                     </div>
-                    <span class="help-block has-error" id="password-error"></span>
-                  </div>
-                  <button type="button" id="login_btn" class="btn btn-block bt-login" data-loading-text="Signing In....">Login</button>
+
+
+                    <div class="actions">
+                      <%= f.submit "Sign in", class: 'btn btn-block bt-login' %>
+                    </div>
+                  <% end %>
                   <div class="login-modal-footer">
                     <div class="row">
                       <div class="col-xs-12 col-sm-12 col-md-12">
