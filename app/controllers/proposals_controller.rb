@@ -8,12 +8,16 @@ class ProposalsController < ApplicationController
     @newproposal = Proposal.new
   end
 
+  def edit
+    @editproposal = Proposal.find(params[:id])
+  end
+
   def show
     @proposal = Proposal.find(params[:id])
   end
 
 def create
-  proposal = Proposal.new(proposal_params)
+  proposal = current_user.proposals.build(proposal_params)
 
 if proposal.save
   redirect_to root_url
