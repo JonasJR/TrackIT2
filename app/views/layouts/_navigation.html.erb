@@ -20,6 +20,13 @@
       </ul>
     </li>
   </ul>
+  <ul class="nav navbar-nav navbar-right">
+    <% if signed_in? %>
+      <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></a></li>
+    <% else %>
+    <li><%= link_to 'Sign in', new_user_session_path %></li>
+    <% end %>
+  </ul>
 
 </div><!-- /.navbar-collapse -->
 </div><!-- /.container-fluid -->
