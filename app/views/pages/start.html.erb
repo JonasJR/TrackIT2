@@ -1,5 +1,4 @@
 <div id="home">
-<<<<<<< HEAD
     <h1>Track<span>I</span>t</h1>
     <p class="lead">- proposals that makes people land on Mars</p>
     <p class="submitted-before">Have you submitted before? Click <a href="#" data-toggle="modal" data-target="#loginModal">here</a> to sign in!</p>
@@ -15,89 +14,6 @@
                 <i class="glyphicon glyphicon-search"></i><br><hr>Browse proposals
             <% end %>
         </div>
-=======
-  <h1>Track
-    <span>I</span>t</h1>
-  <p class="lead">- proposals that makes people land on Mars</p>
-  <p class="submitted-before">Have you submitted before? Click
-    <a href="#" data-toggle="modal" data-target="#loginModal">here</a>
-    to login</p>
-
-  <div class="row">
-    <div class="col-sm-12">
-      <%=link_to :new_proposal do %>
-      <button class="btn btn-large student">
-        <i class="glyphicon glyphicon-education"></i><br><hr>Student submit</button>
-      <%end%>
-      <%=link_to :new_proposal do %>
-      <button class="btn btn-large company">
-        <i class="glyphicon glyphicon-briefcase"></i><br><hr>Company submit</button>
-      <%end%>
-      <%=link_to :proposals do %>
-      <button class="btn btn-large browse">
-        <i class="glyphicon glyphicon-search"></i><br><hr>Browse proposals</button>
-      <% end %>
->>>>>>> morre
     </div>
   </div>
 </div>
-<<<<<<< HEAD
-
-<!-- Modal -->
-<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-      </div>
-      <div class="modal-body">
-        <h2>Log in</h2>
-
-        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-          <div class="field">
-            <%= f.label :email %><br />
-            <%= f.email_field :email, autofocus: true %>
-          </div>
-
-          <div class="field">
-            <%= f.label :password %><br />
-            <%= f.password_field :password, autocomplete: "off" %>
-          </div>
-
-          <% if devise_mapping.rememberable? -%>
-            <div class="field">
-              <%= f.check_box :remember_me %>
-              <%= f.label :remember_me %>
-            </div>
-          <% end -%>
-
-          <div class="actions">
-            <%= f.submit "Log in" %>
-          </div>
-        <% end %>
-
-        <%= render "devise/shared/links" %>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
-<script type="text/javascript">
-    $(document).ready(function () {
-        var back = ["#8F2D56", "#218380", "#D81159", "#FFBC42"];
-        var rand = back[Math.floor(Math.random() * back.length)];
-        console.log(rand);
-        $('span').css('color', rand);
-
-        $('#myModal').on('shown.bs.modal', function () {
-  $('#myInput').focus()
-})
-
-    });
-</script>
-=======
->>>>>>> morre
