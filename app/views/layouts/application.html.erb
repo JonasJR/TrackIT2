@@ -1,26 +1,26 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>TrackIT2</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+  <head>
+    <title>TrackIT2</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
 
-  <div class="container">
+    <div class="container">
+      <%= render 'layouts/navigation' %>
+      <%= render 'layouts/login_modal' %>
 
-    <%= render 'layouts/navigation' %>
+      <div class="jumbotron">
+        <% flash.each do |key, value| %>
+        <div class="alert alert-<%= key %>"><%= value %></div>
+        <% end %>
+        <%= yield %>
+      </div>
 
-    <div class="jumbotron">
-      <% flash.each do |key, value| %>
-      <div class="alert alert-<%= key %>"><%= value %></div>
-      <% end %>
-      <%= yield %>
     </div>
-    
-  </div>
 
-</body>
+  </body>
 </html>
