@@ -1,4 +1,4 @@
-$(document).ready ->
+ready = ->
 
   student = $(".student")
   company = $(".company")
@@ -16,3 +16,6 @@ check_signed_in = (e) ->
     e.preventDefault()
     console.log "signed out"
     $("#loginModal").modal("show")
+
+$(document).ready(ready)
+$(document).on('page:load', ready)
