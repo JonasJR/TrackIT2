@@ -21,6 +21,10 @@ $trackit: #8F2D56
  *= require_tree .
  *= require_self
  */
+
+@import 'pages'
+@import 'proposals'
+
 .nav
   li
     a
@@ -39,32 +43,33 @@ $trackit: #8F2D56
 .jumbotron
   margin-top: 50px
 
-#home
+#edit
+  h2
+    span
+      color: $student
 
-  text-align: center
-  margin-top: 20px
+.bt-login,.bt-login:hover, .bt-login:active, .bt-login:focus
+  background-color: $trackit
+  color: white
+  padding-bottom: 10px
+  padding-top: 10px
+  transition: background-color 300ms linear 0s
 
-  .btn
-    margin: 5px
-    padding: 20px
+.login-modal-header
+  background: $trackit
+  color: #fff
 
-  .student
-    background-color: $student
-    color: white
+.login-modal-header .modal-title
+  color: #fff
 
-    i
-      font-size: 100px
+.login-modal-header .close
+  color: #fff
 
-  .company
-    background-color: $company
-    color: white
+.login-modal i
+  color: #000
 
-    i
-      font-size: 100px
+.login-modal form
+  max-width: 340px
 
-  .browse
-    background-color: $browse
-    color: white
-
-    i
-      font-size: 100px
+.tab-pane form
+  margin: 0 auto

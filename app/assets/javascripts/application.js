@@ -12,7 +12,51 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require jquery
 //= require bootstrap-sprockets
+//= require jquery-ui
 //= require turbolinks
 //= require_tree .
+
+
+
+$(document).ready(function() {
+  var span = $('.spans');
+  span.css('color', '#FFBC42');
+  setInterval(function() {
+    span.animate({
+      color: '#FFBC42'
+    }, 2700).animate({
+      color: '#D81159'
+    }, 2700).animate({
+      color: '#218380'
+    }, 2700);
+  }, 2000);
+
+  $('a[data-toggle="tab"]').on('click.bs.tab', function(e) {
+    activaTab('aaa');
+  });
+
+  $('.forgetpass-tab').on("click.bs.tab", function(e) {
+    activaTab('ccc');
+  });
+});
+
+function activaTab(tab) {
+  $('.nav-tabs a[href="#' + tab + '"]').tab('show');
+};
+
+
+// function spancolors() {
+//   var i = 0;
+//   var span = $(".span");
+//   var colors = ['#fff', '#aaa', '#faf'];
+//   span.css('color', colors[i]);
+//
+//   window.setInterval(function() {
+//     i = i == colors.length ? 0 : i;
+//     span.animate({
+//       color: colors[i]
+//     }, 3000);
+//     i++;
+//   }, 30);
+// }
