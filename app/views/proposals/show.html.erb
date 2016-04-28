@@ -1,5 +1,7 @@
-<% if (@proposal.user_id == current_user.id) %>
-  <%= link_to 'Edit', edit_proposal_path(@proposal) %>
+<% if signed_in? %>
+  <% if (@proposal.user_id == current_user.id) %>
+    <%= link_to 'Edit', edit_proposal_path(@proposal) %>
+  <% end %>
 <% end %>
 <h1><%= @proposal.name %></h1>
 <small>By Jerry pedersen</small>
