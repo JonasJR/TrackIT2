@@ -86,10 +86,17 @@
                       <% if @minimum_password_length %>
                       <em>(<%= @minimum_password_length %> characters minimum)</em>
                       <% end %>
-                      <%= f.password_field :password, autocomplete: "off", class: 'form-control form-control-upper', placeholder: 'Enter a Password' %>
-                      <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control form-control-down', placeholder: 'Enter Password again' %>
+                      <%= f.password_field :password, autocomplete: "off", class: 'form-control', placeholder: 'Enter a Password' %>
                     </div>
                     <span class="help-block has-error" data-error='0' id="remail-error"></span>
+                  </div>
+                  <div class="form-group">
+                    <div class="input-group">
+                      <div class="input-group-addon">
+                        <i class="fa fa-at"></i>
+                      </div>
+                      <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control', placeholder: 'Enter Password again' %>
+                    </div>
                   </div>
                   <%= f.submit "Sign up" , class: 'btn btn-block bt-login'%>
                   <% end %>
