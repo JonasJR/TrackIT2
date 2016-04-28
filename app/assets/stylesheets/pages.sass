@@ -11,6 +11,10 @@
   .btn
     margin: 5px
     padding: 20px
+    transition: all 0.3s ease-in-out
+
+    hr
+      transition: all 0.3s ease-in-out
 
   .student
     background-color: $student
@@ -20,9 +24,10 @@
       font-size: 100px
 
     &:hover
-      i
-        color: darken($student, 20%)
-        transition: all 0.2s ease-in-out
+      color: darken($student, 20%)
+
+      hr
+        border-color: darken($student, 20%)
 
   .company
     background-color: $company
@@ -33,7 +38,9 @@
 
     &:hover
       color: darken($company, 20%)
-      transition: all 0.2s ease-in-out
+
+      hr
+        border-color: darken($company, 20%)
 
   .browse
     background-color: $browse
@@ -44,4 +51,6 @@
 
     &:hover
       color: darken($browse, 20%)
-      transition: all 0.2s ease-in-out
+
+      hr
+        border-color: darken($browse, 20%)
