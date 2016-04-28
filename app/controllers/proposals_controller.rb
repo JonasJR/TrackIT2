@@ -1,5 +1,7 @@
 class ProposalsController < ApplicationController
 
+  before_action :authenticate, except: [:index, :show]
+
   def index
     @proposals = Proposal.all
   end
@@ -41,8 +43,12 @@ end
 
 private
 
-def proposal_params
-  params.require(:proposal).permit(:name, :description, :category, :course)
-end
+  def proposal_params
+    params.require(:proposal).permit(:name, :description, :category, :course)
+  end
+
+  def authenticate
+    redirect_to new_user_session_path unless signed_in?
+  end
 
 end
