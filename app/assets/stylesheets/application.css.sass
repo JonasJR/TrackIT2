@@ -24,73 +24,9 @@ $trackit: #8F2D56
 
 @import 'pages'
 @import 'proposals'
+@import 'navigation'
+@import 'login_modal'
 
 .jumbotron
   margin-top: 50px
   margin-top: 10px
-
-.navbar
-  box-shadow: 0px 1px 56px -16px rgba(0,0,0,0.2)
-  border-radius: 0
-  border-bottom: 1px solid #f6f6f6
-  background-color: #333
-
-  li
-    border-bottom: 3px solid #333
-
-    &:hover
-      border-bottom: 3px solid $company
-
-
-    a:hover
-      background-color: #333
-
-.nav
-  li
-    a
-      color: white
-      font-weight: 700
-      letter-spacing: 1px
-
-.navbar-brand
-  color: white
-
-  span
-    color: $trackit
-    font-size: 1.2em
-    margin: 0 1px
-
-.bt-login,.bt-login:hover, .bt-login:active, .bt-login:focus
-  background-color: $trackit
-  color: white
-  padding-bottom: 10px
-  padding-top: 10px
-  transition: background-color 300ms linear 0s
-
-.login-modal-header
-  background: $trackit
-  color: #fff
-
-.login-modal-header .modal-title
-  color: #fff
-
-.login-modal-header .close
-  color: #fff
-
-.login-modal i
-  color: #000
-
-.login-modal form
-  max-width: 340px
-
-.tab-pane form
-  margin: 0 auto
-
-#loginModal
-  .form-control-upper
-    border-top-right-radius: 5px
-    border-bottom: 0
-
-  .form-control-down
-    border-top-right-radius: 0
-    border-bottom-right-radius: 5px
