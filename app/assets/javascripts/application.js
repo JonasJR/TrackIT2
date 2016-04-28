@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require jquery
+//= jquery.turbolinks
 //= require jquery_ujs
 //= require bootstrap-sprockets
 //= require jquery-ui
@@ -20,17 +21,8 @@
 
 
 $(document).ready(function() {
-  var span = $('.spans');
-  span.css('color', '#FFBC42');
-  setInterval(function() {
-    span.animate({
-      color: '#FFBC42'
-    }, 2700).animate({
-      color: '#D81159'
-    }, 2700).animate({
-      color: '#218380'
-    }, 2700);
-  }, 2000);
+  console.log("document");
+  spanColors();
 
   $('a[data-toggle="tab"]').on('click.bs.tab', function(e) {
     activaTab('aaa');
@@ -41,22 +33,24 @@ $(document).ready(function() {
   });
 });
 
+$(document).on('ready page:load', function () {
+  spanColors();
+});
+
 function activaTab(tab) {
   $('.nav-tabs a[href="#' + tab + '"]').tab('show');
 };
 
-
-// function spancolors() {
-//   var i = 0;
-//   var span = $(".span");
-//   var colors = ['#fff', '#aaa', '#faf'];
-//   span.css('color', colors[i]);
-//
-//   window.setInterval(function() {
-//     i = i == colors.length ? 0 : i;
-//     span.animate({
-//       color: colors[i]
-//     }, 3000);
-//     i++;
-//   }, 30);
-// }
+function spanColors() {
+  var span = $('.spans');
+  span.css('color', '#FFBC42');
+  setInterval(function() {
+    span.animate({
+      color: '#FFBC42'
+    }, 2000).animate({
+      color: '#D81159'
+    }, 2000).animate({
+      color: '#218380'
+    }, 2000);
+  });
+}
