@@ -28,7 +28,7 @@
     <% if signed_in? %>
       <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></a></li>
     <% else %>
-    <li><a href="#" data-toggle="modal" data-target="#loginModal">Sign in</a></li>
+    <li><a href="#" data-toggle="modal" data-target="#loginModal">Sign in / Sign up</a></li>
     <% end %>
   </ul>
 
