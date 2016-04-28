@@ -48,7 +48,10 @@ private
   end
 
   def authenticate
-    redirect_to new_user_session_path unless signed_in?
+    unless signed_in?
+      flash[:error] = "Please log in first"
+      redirect_to new_user_session_path
+    end
   end
 
 end
