@@ -9,8 +9,9 @@
   </head>
   <body data-signed-in="<%= signed_in? %>">
 
+    <%= render 'layouts/navigation' %>
+    
     <div class="container">
-      <%= render 'layouts/navigation' %>
       <%= render 'layouts/login_modal' %>
 
       <div class="jumbotron">
