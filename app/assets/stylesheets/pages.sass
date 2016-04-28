@@ -4,18 +4,13 @@
 
 #home
   text-align: center
-  
+
   .submitted-before
     font-size: 14px
 
   .btn
     margin: 5px
     padding: 20px
-
-    &:hover
-      i
-        color: $trackit
-        transition: all 0.2s ease-in-out
 
   .student
     background-color: $student
@@ -24,6 +19,11 @@
     i
       font-size: 100px
 
+    &:hover
+      i
+        color: darken($student, 20%)
+        transition: all 0.2s ease-in-out
+
   .company
     background-color: $company
     color: white
@@ -31,9 +31,17 @@
     i
       font-size: 100px
 
+    &:hover
+      color: darken($company, 20%)
+      transition: all 0.2s ease-in-out
+
   .browse
     background-color: $browse
     color: white
 
     i
       font-size: 100px
+
+    &:hover
+      color: darken($browse, 20%)
+      transition: all 0.2s ease-in-out
