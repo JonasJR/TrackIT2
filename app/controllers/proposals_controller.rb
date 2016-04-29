@@ -14,6 +14,19 @@ class ProposalsController < ApplicationController
     @editproposal = Proposal.find(params[:id])
   end
 
+  def approved
+    @approvedproposal = Proposal.find(params[:id])
+    @approvedproposal.approved = true
+    @approvedproposal.save
+    redirect_to teachers_approve_url
+  end
+
+  def destroy
+    @deleteproposal = Proposal.find(params[:id])
+    @deleteproposal.destroy
+    redirect_to teachers_approve_url
+  end
+
   def update
     @proposal = Proposal.find(params[:id])
     if @proposal.update_attributes(proposal_params)
@@ -31,6 +44,7 @@ class ProposalsController < ApplicationController
 
 def create
   proposal = current_user.proposals.build(proposal_params)
+  proposal.approved = false
 
 if proposal.save
   redirect_to root_url
