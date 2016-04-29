@@ -14,11 +14,11 @@
         <tbody>
             <% @proposals.each do |p| %>
             <tr data-link="<%= proposal_path(p) %>">
-                <td><%= p.name %></td>
-                <td><%= p.description %></td>
-                <td><%= p.category %></td>
-                <td><i class="glyphicon glyphicon-ok"></i></td>
-                <td><i class="glyphicon glyphicon-remove"></i></td>
+                <td class="col-md-3"><%= p.name %></td>
+                <td class="col-md-4"><%= p.description %></td>
+                <td class="col-md-3"><%= p.category %></td>
+                <td class="col-md-1"><i class="glyphicon glyphicon-ok"></i></td>
+                <td class="col-md-1"><i class="glyphicon glyphicon-remove"></i></td>
             </tr>
             <% end %>
         </tbody>
