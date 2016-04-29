@@ -22,7 +22,7 @@
     <% end %>
     <li class="<%= is_active?('/proposals') %>"><%= link_to "Browse", '/proposals' %></li>
     <% if current_user.try(:teacher?) %>
-      <li class="<%= is_active?('/teacher/approve') %>"><%= link_to "Approve", '/teacher/approve' %></li>
+      <li class="<%= is_active?('/teachers/approve') %>"><%= link_to "Approve", '/teachers/approve' %></li>
     <% else %>
     <% end %>
       </ul>

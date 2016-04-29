@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   get 'teachers/show'
 
+  get 'teachers/approve'
+
   get 'admins/index'
 
   get 'admins/show'
