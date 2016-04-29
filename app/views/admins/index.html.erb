@@ -1,2 +1,78 @@
-<h1>Admins#index</h1>
-<p>Find me in app/views/admins/index.html.erb</p>
+<h1>Admin</h1>
+<div class="row">
+  <div class="col-xs-4">
+    <label for="admin-search">Search user:</label>
+    <input class="form-control light-table-filter" type="search" data-table="order-table" id="admin-search" placeholder="Mike Kite">
+  </div>
+</div>
+<br>
+<div class="row">
+  <div class="col-xs-12">
+    <table data-role="table" class="table order-table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Role</th>
+          <th>Admin</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @users.each do |user| %>
+        <tr data-id="<%= edit_admin_url(user.id) %>">
+          <td><%= user.firstname %>
+            <%= user.lastname %></td>
+          <td><%= user.email %></td>
+          <td><%= "√" if user.teacher? %></td>
+          <td><%= "√" if user.admin? %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<script type="text/javascript">
+  (function (document) {
+    'use strict';
+
+    var LightTableFilter = (function (Arr) {
+
+      var _input;
+
+      function _onInputEvent(e) {
+        _input = e.target;
+        var tables = document.getElementsByClassName(_input.getAttribute('data-table'));
+        Arr.forEach.call(tables, function (table) {
+          Arr.forEach.call(table.tBodies, function (tbody) {
+            Arr.forEach.call(tbody.rows, _filter);
+          });
+        });
+      }
+
+      function _filter(row) {
+        var text = row.textContent.toLowerCase(),
+          val = _input.value.toLowerCase();
+        row.style.display = text.indexOf(val) === -1
+          ? 'none'
+          : 'table-row';
+      }
+
+      return {
+        init: function () {
+          var inputs = document.getElementsByClassName('light-table-filter');
+          Arr.forEach.call(inputs, function (input) {
+            input.oninput = _onInputEvent;
+          });
+        }
+      };
+    })(Array.prototype);
+
+    document.addEventListener('readystatechange', function () {
+      if (document.readyState === 'complete') {
+        LightTableFilter.init();
+      }
+    });
+
+  })(document);
+</script>

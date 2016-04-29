@@ -5,10 +5,11 @@ Rails.application.routes.draw do
 
   get 'admins/index'
 
-  get 'admins/show'
+  get 'admins/edit'
 
   devise_for :users
   resources :proposals
+  resources :admins
 
   root 'pages#start'
 end
