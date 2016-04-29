@@ -1,0 +1,33 @@
+<div id="approve">
+    <h2>Browse
+        <span class="spans">I</span>t</h2>
+    <table class="table table-hover" id="approve-proposals">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Category</th>
+                <th>Approved</th>
+                <th>Approve?</th>
+                <th>Remove?</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @proposals.each do |p| %>
+            <tr data-link="<%= proposal_path(p) %>">
+                <td><%= p.name %></td>
+                <td><%= p.description %></td>
+                <td><%= p.category %></td>
+                <td><%= p.approved %></td>
+                <td><%= p.checkbox %></td>
+                <td><%= p.TABORTKNAPP %></td>
+            </tr>
+            <% end %>
+        </tbody>
+    </table>
+</div>
+<script type="text/javascript">
+$("tr").click(function() {
+  window.location = $(this).data("link")
+});
+</script>
