@@ -1,0 +1,39 @@
+<div id="approve">
+    <h2>Browse
+        <span class="spans">I</span>t</h2>
+    <table class="table table-hover" id="approve-proposals">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Category</th>
+                <th>Approve?</th>
+                <th>Remove?</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @proposals.each do |p| %>
+            <% unless p.approved? %>
+              <tr data-link="<%= proposal_path(p) %>">
+                <td class="col-md-3 clickable"><%= p.name %></td>
+                <td class="col-md-4 clickable"><%= p.description %></td>
+                <td class="col-md-3 clickable"><%= p.category %></td>
+                <td class="col-md-1 centered"><%= link_to 'Approve', p, data: {:confirm => 'Are you sure?'}, :method => :approved %><i id="acceptglyph" class="glyphicon glyphicon-ok"></i></td>
+                <td class="col-md-1 centered"><%= link_to 'Destroy', p, data: {:confirm => 'Are you sure?'}, :method => :delete %><i id="removeglyph" class="glyphicon glyphicon-remove"></i></td>
+              </tr>
+              <% end %>
+            <% end %>
+        </tbody>
+    </table>
+</div>
+<script type="text/javascript">
+$(".clickable").click(function() {
+  window.location = $(this).data("link")
+});
+$("#acceptglyph").click(function(){
+  console.log(this);
+});
+$("#removeglyph").click(function(){
+  console.log(this);
+});
+</script>

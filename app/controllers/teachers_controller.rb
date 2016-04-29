@@ -4,4 +4,8 @@ class TeachersController < ApplicationController
 
   def show
   end
+
+  def approve
+    @proposals = Proposal.all
+  end
 end
