@@ -18,8 +18,8 @@
                 <td class="col-md-3 clickable"><%= p.name %></td>
                 <td class="col-md-4 clickable"><%= p.description %></td>
                 <td class="col-md-3 clickable"><%= p.category %></td>
-                <td class="col-md-1"><i class="glyphicon glyphicon-ok"></i></td>
-                <td class="col-md-1"><i class="glyphicon glyphicon-remove"></i></td>
+                <td class="col-md-1 centered"><i id="acceptglyph" class="glyphicon glyphicon-ok"></i></td>
+                <td class="col-md-1 centered"><i id="removeglyph" class="glyphicon glyphicon-remove"></i></td>
               </tr>
               <% end %>
             <% end %>
@@ -29,5 +29,11 @@
 <script type="text/javascript">
 $(".clickable").click(function() {
   window.location = $(this).data("link")
+});
+$("#acceptglyph").click(function(){
+  console.log(this);
+});
+$("#removeglyph").click(function(){
+  console.log(this);
 });
 </script>
