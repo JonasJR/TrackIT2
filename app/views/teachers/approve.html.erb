@@ -14,9 +14,9 @@
         <tbody>
             <% @proposals.each do |p| %>
             <tr data-link="<%= proposal_path(p) %>">
-                <td class="col-md-3"><%= p.name %></td>
-                <td class="col-md-4"><%= p.description %></td>
-                <td class="col-md-3"><%= p.category %></td>
+                <td class="col-md-3 clickable"><%= p.name %></td>
+                <td class="col-md-4 clickable"><%= p.description %></td>
+                <td class="col-md-3 clickable"><%= p.category %></td>
                 <td class="col-md-1"><i class="glyphicon glyphicon-ok"></i></td>
                 <td class="col-md-1"><i class="glyphicon glyphicon-remove"></i></td>
             </tr>
@@ -25,7 +25,7 @@
     </table>
 </div>
 <script type="text/javascript">
-$("tr").click(function() {
+$(".clickable").click(function() {
   window.location = $(this).data("link")
 });
 </script>
