@@ -28,12 +28,6 @@
 </div>
 <script type="text/javascript">
 $(".clickable").click(function() {
-  window.location = $(this).data("link")
-});
-$("#acceptglyph").click(function(){
-  console.log(this);
-});
-$("#removeglyph").click(function(){
-  console.log(this);
+  window.location = $(this).parent().data("link")
 });
 </script>
