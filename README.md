@@ -10,6 +10,9 @@
 # - Filter, på kurs och per år
 # - Sökfunktion
 
+# Navbar
+# - Hamburgarglyphicon i mobilview syns inte.
+
 # Login
 # -
 
