@@ -15,16 +15,28 @@ class ProposalsController < ApplicationController
   end
 
   def approved
-    @approvedproposal = Proposal.find(params[:id])
-    @approvedproposal.approved = true
-    @approvedproposal.save
-    redirect_to teachers_approve_url
+    if current_user.try(:teacher?)
+      @approvedproposal = Proposal.find(params[:id])
+      @approvedproposal.approved = true
+      @approvedproposal.save
+      flash[:success] = "Proposal approved!"
+      redirect_to teachers_approve_url
+    else
+      flash[:error] = "Error, you don't have permission to approve"
+      redirect_to root_url
+    end
   end
 
   def destroy
-    @deleteproposal = Proposal.find(params[:id])
-    @deleteproposal.destroy
-    redirect_to teachers_approve_url
+    if current_user.try(:teacher?)
+      @deleteproposal = Proposal.find(params[:id])
+      @deleteproposal.destroy
+      flash[:success] = "Proposal removed!"
+      redirect_to teachers_approve_url
+    else
+      flash[:error] = "Error, you don't have permission to remove"
+      redirect_to root_url
+    end
   end
 
   def update
