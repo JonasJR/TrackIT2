@@ -6,18 +6,10 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   def admin?
-    if admin == nil
-      return false
-    else
-      return true
-    end
+    !(admin.nil?)
   end
 
   def teacher?
-    if teacher == nil
-      return false
-    else
-      return true
-    end
+    !(teacher.nil?)
   end
 end
