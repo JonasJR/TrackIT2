@@ -5,12 +5,12 @@ Rails.application.routes.draw do
 
   get 'teachers/approve'
 
-  get 'admins/index'
-
-  get 'admins/edit'
-
   devise_for :users
-  resources :proposals
+  resources :proposals do
+    get :approved
+  end
+  put 'proposals/:id/approved' => 'proposals#approved'
+
   resources :admins
 
   root 'pages#start'
