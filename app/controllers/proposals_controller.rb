@@ -8,6 +8,7 @@ class ProposalsController < ApplicationController
 
   def new
     @newproposal = Proposal.new
+    @page = params[:page]
   end
 
   def edit
