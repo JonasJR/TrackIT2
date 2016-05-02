@@ -15,30 +15,32 @@
       <%= f.text_area :description, class: "form-control", required: true  %>
     </div>
   </div>
-  <p>Student specific</p>
-  <div class="form-group">
-    <%= f.label :course, "Course: ", class: "col-md-1 control-label" %>
-    <div class="col-md-6">
-      <%= f.text_field :course, class: "form-control" %>
+  <% if @page == "student" %>
+    <p>Student specific</p>
+    <div class="form-group">
+      <%= f.label :course, "Course: ", class: "col-md-1 control-label" %>
+      <div class="col-md-6">
+        <%= f.text_field :course, class: "form-control" %>
+      </div>
     </div>
-  </div>
-  <div class="form-group">
-    <%= f.label :category, "Category: ", class: "col-md-1 control-label"%>
-    <div class="col-md-2">
-      <%= f.select(:category, options_for_select([['Thesis', 'Thesis'], ['Candidate', 'Candidate'],['Bachelor', 'Bachelor']]), {}, {class: "form-control"}) %>
+    <div class="form-group">
+      <%= f.label :category, "Category: ", class: "col-md-1 control-label"%>
+      <div class="col-md-2">
+        <%= f.select(:category, options_for_select([['Thesis', 'Thesis'], ['Candidate', 'Candidate'],['Bachelor', 'Bachelor']]), {}, {class: "form-control"}) %>
+      </div>
     </div>
-  </div>
-  <p>Company specific</p>
-  <div class="form-group">
-    <%= f.label :company, "Company name: ", class: "col-md-1 control-label"%>
-    <div class="col-md-2">
-      <%= f.text_field :company, class: "form-control" %>
+  <% else %>
+    <p>Company specific</p>
+    <div class="form-group">
+      <%= f.label :company, "Company name: ", class: "col-md-1 control-label"%>
+      <div class="col-md-2">
+        <%= f.text_field :company, class: "form-control" %>
+      </div>
     </div>
-  </div>
-  <br>
-  <div class="row">
-    <%= f.submit "Submit", class: "col-md-4 col-md-offset-2 btn btn-default btn-primary" %>
-    <% end %>
-  </div>
-
+    <br>
+    <div class="row">
+      <%= f.submit "Submit", class: "col-md-4 col-md-offset-2 btn btn-default btn-primary" %>
+      <% end %>
+    </div>
+  <% end %>
 </div>

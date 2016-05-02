@@ -4,10 +4,10 @@
     <p class="submitted-before">Have you submitted before? Click <a href="#" data-toggle="modal" data-target="#loginModal">here</a> to sign in!</p>
     <div class="row">
         <div class="col-sm-12">
-            <%= link_to new_proposal_path, class: 'btn btn-large student' do %>
+            <%= link_to new_proposal_path + "?page=student", class: 'btn btn-large student' do %>
                 <i class="glyphicon glyphicon-education"></i><br><hr>Student submit
             <% end %>
-            <%= link_to new_proposal_path, class: 'btn btn-large company' do %>
+            <%= link_to new_proposal_path + "?page=company", class: 'btn btn-large company' do %>
                 <i class="glyphicon glyphicon-briefcase"></i><br><hr>Company submit
             <% end %>
             <%= link_to proposals_path, class: 'btn btn-large browse' do %>
