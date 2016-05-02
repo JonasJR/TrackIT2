@@ -17,7 +17,7 @@
           <th>Admin</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody class="order-table-body">
         <% @users.each do |user| %>
         <tr data-id="<%= edit_admin_url(user.id) %>">
           <td><%= user.firstname %>

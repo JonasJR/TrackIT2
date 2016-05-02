@@ -3,6 +3,6 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $(document).on 'ready page:load', ->
-  rows = $('.order-table tr')
+  rows = $('.order-table-body tr')
   rows.on 'click', ->
      location.href = $(this).data("id")
