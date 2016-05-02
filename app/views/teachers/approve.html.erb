@@ -1,5 +1,5 @@
 <div id="approve">
-    <h2>Browse
+    <h2>Approve
         <span class="spans">I</span>t</h2>
     <table class="table table-hover" id="approve-proposals">
         <thead>
@@ -18,8 +18,8 @@
                 <td class="col-md-3 clickable"><%= p.name %></td>
                 <td class="col-md-4 clickable"><%= p.description %></td>
                 <td class="col-md-3 clickable"><%= p.category %></td>
-                <td class="col-md-1 centered"><%= link_to 'Approve', proposal_approved_path(p), method: :put, data: {:confirm => 'Are you sure?'} %><i id="acceptglyph" class="glyphicon glyphicon-ok"></i></td>
-                <td class="col-md-1 centered"><%= link_to 'Destroy', p, data: {:confirm => 'Are you sure?'}, :method => :delete %><i id="removeglyph" class="glyphicon glyphicon-remove"></i></td>
+                <td class="col-md-1 centered"><%= link_to ('<i id="acceptglyph" class="glyphicon glyphicon-ok"></i>').html_safe, proposal_approved_path(p), method: :put, data: {:confirm => 'Are you sure?'} %></td>
+                <td class="col-md-1 centered"><%= link_to ('<i id="removeglyph" class="glyphicon glyphicon-remove"></i>').html_safe, p, data: {:confirm => 'Are you sure?'}, :method => :delete %></td>
               </tr>
               <% end %>
             <% end %>
