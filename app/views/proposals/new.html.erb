@@ -2,7 +2,7 @@
   <h2>Submit <span class="spans">I</span>t</h2>
   <br>
 
-  <%= form_for @newproposal, :html => {:class => "form-horizontal center"} do |f| %>
+  <%= form_for @newproposal, :html => { :class => "form-horizontal center" } do |f| %>
   <div class="form-group">
     <%= f.label :title, "*Title: ", class: "col-md-1 control-label" %>
     <div class="col-md-6">
@@ -38,9 +38,9 @@
       </div>
     </div>
     <br>
+  <% end %>
     <div class="row">
       <%= f.submit "Submit", class: "col-md-4 col-md-offset-2 btn btn-default btn-primary" %>
       <% end %>
     </div>
-  <% end %>
 </div>
