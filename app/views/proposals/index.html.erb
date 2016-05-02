@@ -11,11 +11,13 @@
         </thead>
         <tbody>
             <% @proposals.each do |p| %>
+            <% if p.approved? %>
             <tr data-link="<%= proposal_path(p) %>">
                 <td><%= p.name %></td>
                 <td><%= p.description %></td>
                 <td><%= p.category %></td>
             </tr>
+            <% end %>
             <% end %>
         </tbody>
     </table>
