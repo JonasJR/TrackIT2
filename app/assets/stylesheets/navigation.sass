@@ -32,3 +32,21 @@ nav.navbar
       color: $trackit
       font-size: 1.2em
       margin: 0 1px
+
+.navbar-default
+  ul.navbar-nav
+    li.active
+      border-bottom: 3px solid $browse
+
+      a, a:focus, a:hover
+        background-color: #333
+        color: white
+
+    a:hover
+      color: white
+
+  .navbar-toggle
+    border: 0
+
+    &:focus
+      background-color: inherit
