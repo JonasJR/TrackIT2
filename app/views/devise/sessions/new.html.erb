@@ -1,8 +1,7 @@
-<div class="sign-in">
+<div class="sign-in max-width">
   <h2>Sign in</h2>
 
-  <%= form_for(resource, as: resource_name, url: session_path(resource_name), class: 'max-width') do |f| %>
-    <div class="max-width">
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="form-group input-group">
         <span class="input-group-addon">
           @
@@ -31,5 +30,4 @@
     <% end %>
 
     <div class="center"><%= render "devise/shared/links" %></div>
-  </div>
 </div>

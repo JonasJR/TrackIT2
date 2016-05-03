@@ -7,29 +7,34 @@
 <small>By Jerry pedersen</small>
 <hr>
 <div class="row">
-  <div class="col-md-1">
-    <strong>Description</strong>
-  </div>
-  <div class="col-md-11">
-    <%= @proposal.description %>
-  </div>
-  <hr>
-  <div class="row">
-    <div id="github">
-      <% unless @proposal.vsc_url.blank? %>
-      <div class="col-md-3">
-        <%= link_to ('<i class="glyphicon glyphicon-book"></i><br>Följ projektets VCS.').html_safe, url_with_protocol(@proposal.vsc_url), :target => '_blank' %>
-        <% end %>
-      </div>
+    <div class="col-md-1">
+        <strong>Description</strong>
     </div>
-    <div id="trello">
-      <% unless @proposal.project_managment_service.blank? %>
-      <div class="col-md-3">
-        <%= link_to ('<i class="glyphicon glyphicon-dashboard"></i><br>Följ projektets management service.').html_safe, url_with_protocol(@proposal.project_managment_service), :target => '_blank' %>
-        <% end %>
-      </div>
+    <div class="col-md-11">
+        <%= @proposal.description %>
     </div>
-    <div class="col-md-3">
+    <hr>
+    <div class="row">
+        <div id="github">
+            <% unless @proposal.vsc_url.blank? %>
+            <div class="col-md-3">
+                <%= link_to ('<i class="glyphicon glyphicon-book"></i><br>Följ projektets VCS.').html_safe, url_with_protocol(@proposal.vsc_url), :target => '_blank' %>
+                <% end %>
+            </div>
+        </div>
+        <div id="trello">
+            <% unless @proposal.project_managment_service.blank? %>
+            <div class="col-md-3">
+                <%= link_to ('<i class="glyphicon glyphicon-dashboard"></i><br>Följ projektets management service.').html_safe, url_with_protocol(@proposal.project_managment_service), :target => '_blank' %>
+                <% end %>
+            </div>
+        </div>
+        <div id="mail">
+            <div class="col-md-3">
+              <a>
+                <i class="glyphicon glyphicon-envelope"></i><br>Följ projektets management service.
+              </a>
+            </div>
+        </div>
     </div>
-  </div>
 </div>
