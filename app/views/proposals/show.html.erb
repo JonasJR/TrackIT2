@@ -21,11 +21,9 @@
         <img src="http://uxrepo.com/static/icon-sets/zocial/svg/github-circled.svg" alt="github" height="42" width="42"/>
       </div>
       <div class="col-md-2">
-        <a href="https://github.com/JonasJR/TrackIT2">
-          Följ projektets VCS.
-        </a>
+        <%= link_to "Följ projektets VCS.", url_with_protocol(@proposal.vsc_url), :target => '_blank' %>
+        <% end %>
       </div>
-      <% end %>
     </div>
     <div id="trello">
       <% unless @proposal.project_managment_service.blank? %>
@@ -33,7 +31,7 @@
         <img src="http://uxrepo.com/static/icon-sets/font-awesome/svg/trello.svg" alt="trello" height="42" width="42"/>
       </div>
       <div class="col-md-2">
-        <a href="https://trello.com/b/6zABOK49/trackit2">
+        <a href="<%= @proposal.project_managment_service %>">
           Följ projektet på Trello.
         </a>
       </div>
