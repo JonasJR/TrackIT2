@@ -13,6 +13,10 @@ class ProposalsController < ApplicationController
 
   def edit
     @editproposal = Proposal.find(params[:id])
+    unless (current_user.id == @editproposal.user_id) or (current_user.try(:teacher?))
+      flash[:success] = "You are not allowed to edit this!"
+      redirect_to proposal_url(@editproposal)
+    end
   end
 
   def approve
@@ -63,15 +67,20 @@ class ProposalsController < ApplicationController
   end
 
 def create
-  proposal = current_user.proposals.build(proposal_params)
-  proposal.approved = false
+  if signed_in?
+    proposal = current_user.proposals.build(proposal_params)
+    proposal.approved = false
 
-  if proposal.save
-    redirect_to root_url
-    flash[:success] = "Proposal submited with no errors"
+    if proposal.save
+      redirect_to root_url
+      flash[:success] = "Proposal submited with no errors"
+    else
+      render :new
+      flash[:error] = "An error occured, please try again!"
+    end
   else
-    render :new
-    flash[:error] = "An error occured, please try again!"
+    flash[:error] = "Please log in first"
+    redirect_to new_user_session_path
   end
 end
 
