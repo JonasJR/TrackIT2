@@ -21,19 +21,24 @@
 
 
 $(document).ready(function() {
-  console.log("document");
   spanColors();
 
   $('a[data-toggle="tab"]').on('click.bs.tab', function(e) {
+    if (this.id === "signup-taba") {
+      $("#loginModalLabel").html("SIGN UP");
+    } else {
+      $("#loginModalLabel").html("LOG IN");
+    }
     activaTab('aaa');
   });
 
   $('.forgetpass-tab').on("click.bs.tab", function(e) {
+    $("#loginModalLabel").html("RETRIEVE PASSWORD");
     activaTab('ccc');
   });
 });
 
-$(document).on('ready page:load', function () {
+$(document).on('ready page:load', function() {
   spanColors();
 });
 
