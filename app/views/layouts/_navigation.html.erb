@@ -17,7 +17,7 @@
     <% if signed_in? %>
       <li class="<%= is_active?('/proposals/new') %>"><%= link_to "Submit", '/proposals/new' %></li>
     <% else %>
-      <li><a href="#" data-toggle="modal" data-target="#loginModal">Submit</a></li>
+      <li class="<%= is_active?('/users/sign_in') %>"><%= link_to "Submit", '/users/sign_in' %></li>
     <% end %>
     <li class="<%= is_active?('/proposals') %>"><%= link_to "Browse", '/proposals' %></li>
     <% if current_user.try(:teacher?) %>
