@@ -75,7 +75,7 @@ end
 private
 
   def proposal_params
-    params.require(:proposal).permit(:name, :description, :category, :course)
+    params.require(:proposal).permit(:name, :description, :category, :course, :vsc_url, :project_managment_service)
   end
 
   def authenticate

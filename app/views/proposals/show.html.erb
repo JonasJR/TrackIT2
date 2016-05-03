@@ -16,7 +16,7 @@
   <hr>
   <div class="row">
     <div id="github">
-      <% if(@proposal.vsc_url != nil) %>
+      <% unless @proposal.vsc_url.blank? %>
       <div class="col-md-1">
         <img src="http://uxrepo.com/static/icon-sets/zocial/svg/github-circled.svg" alt="github" height="42" width="42"/>
       </div>
@@ -28,7 +28,7 @@
       <% end %>
     </div>
     <div id="trello">
-      <% if(@proposal.project_managment_service != nil) %>
+      <% unless @proposal.project_managment_service.blank? %>
       <div class="col-md-1">
         <img src="http://uxrepo.com/static/icon-sets/font-awesome/svg/trello.svg" alt="trello" height="42" width="42"/>
       </div>
