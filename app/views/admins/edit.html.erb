@@ -1,2 +1,16 @@
-<h1>Admin edit profile</h1>
-<p>Find me in app/views/admins/show.html.erb</p>
+<h1><%= @user.firstname %> <%= @user.lastname %></h1>
+<p class="lead"><%= @user.email %></p>
+<p>Roles</p>
+<%= form_for @user do |f| %>
+  <div class="checkbox">
+    <label>
+      <input type="checkbox"> Teacher
+    </label>
+  </div>
+  <div class="checkbox">
+    <label>
+      <input type="checkbox"> Admin
+    </label>
+  </div>
+  <button type="submit" class="btn btn-default">Submit</button>
+<% end %>
