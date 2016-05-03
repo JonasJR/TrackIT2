@@ -25,7 +25,7 @@ class ProposalsController < ApplicationController
       @approvedproposal.approved = true
       @approvedproposal.save
       flash[:success] = "Proposal approved!"
-      redirect_to teachers_approve_url
+      redirect_to proposals_approve_url
     else
       flash[:error] = "Error, you don't have permission to approve"
       redirect_to root_url
@@ -37,7 +37,7 @@ class ProposalsController < ApplicationController
       @deleteproposal = Proposal.find(params[:id])
       @deleteproposal.destroy
       flash[:success] = "Proposal removed!"
-      redirect_to teachers_approve_url
+      redirect_to proposals_approve_url
     else
       flash[:error] = "Error, you don't have permission to remove"
       redirect_to root_url
