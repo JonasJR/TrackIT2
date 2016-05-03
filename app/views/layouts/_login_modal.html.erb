@@ -29,7 +29,7 @@
               <div role="tabpanel" class="tab-pane active text-center" id="aaa">
                 &nbsp;&nbsp;
                 <span id="login_fail" class="response_error" style="display: none;">Loggin failed, please try again.</span>
-                  <%= form_for(resource, as: resource_name, url: session_path(resource_name), id: 'login-form') do |f| %>
+                  <%= form_for(resource, as: resource_name, url: session_path(resource_name), id: 'login-form', remote: true) do |f| %>
                     <div class="form-group">
                       <div class="input-group">
                         <div class="input-group-addon">
