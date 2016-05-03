@@ -17,22 +17,19 @@
   <div class="row">
     <div id="github">
       <% unless @proposal.vsc_url.blank? %>
-      <div class="col-md-2">
-        <%= link_to ('<i id="glyphbook" class="glyphicon glyphicon-book"></i>Följ projektets VCS.').html_safe, url_with_protocol(@proposal.vsc_url), :target => '_blank' %>
+      <div class="col-md-3">
+        <%= link_to ('<i class="glyphicon glyphicon-book"></i><br>Följ projektets VCS.').html_safe, url_with_protocol(@proposal.vsc_url), :target => '_blank' %>
         <% end %>
       </div>
     </div>
     <div id="trello">
       <% unless @proposal.project_managment_service.blank? %>
-      <div class="col-md-2">
-        <%= link_to ('<i id="glyphpen" class="glyphicon glyphicon-book"></i>Följ projektets management service.').html_safe, url_with_protocol(@proposal.project_managment_service), :target => '_blank' %>
+      <div class="col-md-3">
+        <%= link_to ('<i class="glyphicon glyphicon-dashboard"></i><br>Följ projektets management service.').html_safe, url_with_protocol(@proposal.project_managment_service), :target => '_blank' %>
         <% end %>
       </div>
     </div>
-    <div class="col-md-2">
-      <a href="http://gmail.com/">
-        Kontakta projektets ansvariga via mail.
-      </a>
+    <div class="col-md-3">
     </div>
   </div>
 </div>
