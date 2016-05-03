@@ -59,13 +59,13 @@ def create
   proposal = current_user.proposals.build(proposal_params)
   proposal.approved = false
 
-if proposal.save
-  redirect_to root_url
-  flash[:success] = "Proposal submited with no errors"
-else
-  render :new
-  flash[:error] = "An error occured, please try again!"
-end
+  if proposal.save
+    redirect_to root_url
+    flash[:success] = "Proposal submited with no errors"
+  else
+    render :new
+    flash[:error] = "An error occured, please try again!"
+  end
 end
 
 private
