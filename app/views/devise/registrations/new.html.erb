@@ -1,29 +1,45 @@
-<h2>Sign up</h2>
+<div class="sign-in max-width">
+  <h2 class="center">Sign up</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+  <%= render 'devise/shared/login_tabs' %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= devise_error_messages! %>
 
-  <div class="field">
-    <%= f.label :password %>
+    <div class="form-group input-group">
+      <span class="input-group-addon">
+        @
+      </span>
+      <%= f.email_field :email, class: 'form-control', autofocus: true, required: "", placeholder: 'Email' %>
+    </div>
+
     <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
+      <% password_text = "Password (#{@minimum_password_length} characters minimum)" %>
+    <% else %>
+      <% password_text = "Password" %>
+    <% end %>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
+    <div class="form-group input-group">
+      <span class="input-group-addon">
+        <i class="glyphicon glyphicon-lock">
+        </i>
+      </span>
+      <%= f.password_field :password, class: 'form-control', autocomplete: "off", placeholder: password_text , required: true %>
+    </div>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
+    <div class="form-group input-group">
+      <span class="input-group-addon">
+        <i class="glyphicon glyphicon-lock">
+        </i>
+      </span>
+      <%= f.password_field :password_confirmation, class: 'form-control', autocomplete: "off", placeholder: 'Password confirmation', required: true %>
+    </div>
 
-<%= render "devise/shared/links" %>
+
+    <div class="form-group">
+      <%= f.submit 'Sign up', class: 'btn btn-primary btn-block' %>
+    </div>
+  <% end %>
+
+  <%= render "devise/shared/links" %>
+</div>

@@ -1,0 +1,5 @@
+<ul class="nav nav-tabs login-tabs">
+  <li role="presentation" class="<%= is_active?(new_user_session_path) %>"><%= link_to 'Sign in', new_user_session_path %></li>
+  <li role="presentation" class="<%= is_active?(new_user_registration_path) %>"><%= link_to 'Sign up', new_user_registration_path %></li>
+  <li role="presentation" class="<%= is_active?(new_user_password_path) %>"><%= link_to 'Forgot your password?', new_user_password_path %></li>
+</ul>
