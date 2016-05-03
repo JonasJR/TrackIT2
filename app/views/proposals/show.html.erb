@@ -1,5 +1,5 @@
 <% if signed_in? %>
-<% if (@proposal.user_id == current_user.id) %>
+<% if (@proposal.user_id == current_user.id) or (current_user.try(:teacher?)) %>
 <%= link_to 'Edit', edit_proposal_path(@proposal) %>
 <% end %>
 <% end %>
