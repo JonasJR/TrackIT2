@@ -14,10 +14,11 @@
     <div class="container">
       <%= render 'layouts/login_modal' %>
 
-      <div class="jumbotron">
-        <% flash.each do |key, value| %>
+      <% flash.each do |key, value| %>
         <div class="alert alert-<%= key %>"><%= value %></div>
-        <% end %>
+      <% end %>
+
+      <div class="jumbotron">
         <%= yield %>
       </div>
 
