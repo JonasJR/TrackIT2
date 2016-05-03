@@ -29,11 +29,11 @@
                 <% end %>
             </div>
         </div>
-        <div id="mail">
+        <div id="trello">
+            <% unless @proposal.project_managment_service.blank? %>
             <div class="col-md-2">
-              <a>
-                <i class="glyphicon glyphicon-envelope"></i><br>Skicka ett mail till projektet.
-              </a>
+                <%= link_to ('<i class="glyphicon glyphicon-envelope"></i><br>Skicka ett mail till projektet.').html_safe, 'mailto:someone@example.com?Subject=TrackIT%20Email%20Service' %>
+                <% end %>
             </div>
         </div>
     </div>
