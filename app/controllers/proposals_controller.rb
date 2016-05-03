@@ -46,12 +46,14 @@ class ProposalsController < ApplicationController
 
   def update
     @proposal = Proposal.find(params[:id])
-    if @proposal.update_attributes(proposal_params)
-      redirect_to proposal_url(@proposal)
-      flash[:success] = "Proposal edited with no errors"
-    else
-      render 'edit'
-      flash[:error] = "An error occured, please try again!"
+    if (current_user.try(:teacher?)) or (@proposal.user_id == current_user.id)
+      if @proposal.update_attributes(proposal_params)
+        redirect_to proposal_url(@proposal)
+        flash[:success] = "Proposal edited with no errors"
+      else
+        render 'edit'
+        flash[:error] = "An error occured, please try again!"
+      end
     end
   end
 
