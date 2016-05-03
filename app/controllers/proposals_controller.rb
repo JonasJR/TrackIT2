@@ -25,11 +25,12 @@ class ProposalsController < ApplicationController
 
   def approved
     if current_user.try(:teacher?)
+      session[:return_to] ||= request.referer
       @approvedproposal = Proposal.find(params[:id])
       @approvedproposal.approved = true
       @approvedproposal.save
       flash[:success] = "Proposal approved!"
-      redirect_to proposals_approve_url
+      redirect_to session.delete(:return_to)
     else
       flash[:error] = "Error, you don't have permission to approve"
       redirect_to root_url
@@ -38,10 +39,11 @@ class ProposalsController < ApplicationController
 
   def destroy
     if current_user.try(:teacher?)
+      session[:return_to] ||= request.referer
       @deleteproposal = Proposal.find(params[:id])
       @deleteproposal.destroy
       flash[:success] = "Proposal removed!"
-      redirect_to proposals_approve_url
+      redirect_to session.delete(:return_to)
     else
       flash[:error] = "Error, you don't have permission to remove"
       redirect_to root_url

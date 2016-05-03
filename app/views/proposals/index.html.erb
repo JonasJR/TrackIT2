@@ -13,6 +13,9 @@
                 <th>Name</th>
                 <th>Description</th>
                 <th>Category</th>
+                <% if current_user.try(:teacher?) %>
+                  <th>Remove</th>
+                <% end %>
             </tr>
         </thead>
         <tbody>
@@ -22,6 +25,9 @@
                 <td><%= p.name %></td>
                 <td><%= p.description %></td>
                 <td><%= p.category %></td>
+                <% if current_user.try(:teacher?) %>
+                  <td><%= link_to ('<i id="removeglyph" class="glyphicon glyphicon-remove"></i>').html_safe, p, data: {:confirm => 'Are you sure?'}, :method => :delete %></td>
+                <% end %>
             </tr>
             <% end %>
             <% end %>
