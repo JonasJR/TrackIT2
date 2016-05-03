@@ -15,6 +15,10 @@ class ProposalsController < ApplicationController
     @editproposal = Proposal.find(params[:id])
   end
 
+  def approve
+    @proposals = Proposal.all
+  end
+
   def approved
     if current_user.try(:teacher?)
       @approvedproposal = Proposal.find(params[:id])

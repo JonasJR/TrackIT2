@@ -5,6 +5,8 @@ Rails.application.routes.draw do
 
   get 'teachers/approve'
 
+  get 'proposals/approve'
+
   devise_for :users
   resources :proposals do
     get :approved
