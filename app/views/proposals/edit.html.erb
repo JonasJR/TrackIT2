@@ -1,43 +1,73 @@
 <div id="edit">
-    <h2>Edit
-        <span>I</span>t</h2>
+  <h2>Edit
+    <span>I</span>t</h2>
 
-    <%= form_for @editproposal, :html => {:class => "form-horizontal center"} do |f| %>
-    <div class="form-group">
-        <%= f.label :title, "*Title: ", class: "col-md-1 control-label" %>
-        <div class="col-md-6">
-            <%= f.text_field :name, class: "form-control", required: true %>
-        </div>
+  <%= form_for @editproposal, :html => {:class => "form-horizontal center"} do |f| %>
+  <div class="form-group">
+    <div class="col-md-3">
+      <%= f.label :title, "*Title: ", class: "control-label" %>
     </div>
-    <div class="form-group">
-        <%= f.label :description, "*Description: ", class: "col-md-1 control-label"%>
-        <div class="col-md-6">
-            <%= f.text_area :description, class: "form-control", required: true  %>
-        </div>
+    <div class="col-md-6">
+      <%= f.text_field :name, class: "form-control", required: true %>
     </div>
-    <p>Student specific</p>
-    <div class="form-group">
-        <%= f.label :course, "Course: ", class: "col-md-1 control-label" %>
-        <div class="col-md-6">
-            <%= f.text_field :course, class: "form-control" %>
-        </div>
+  </div>
+  <div class="form-group">
+    <div class="col-md-3">
+      <%= f.label :description, "*Description: ", class: "control-label"%>
     </div>
-    <div class="form-group">
-        <%= f.label :category, "Category: ", class: "col-md-1 control-label"%>
-        <div class="col-md-2">
-            <%= f.select(:category, options_for_select([['Thesis', 'Thesis'], ['Candidate', 'Candidate'],['Bachelor', 'Bachelor']]), {}, {class: "form-control"}) %>
-        </div>
+    <div class="col-md-6">
+      <%= f.text_area :description, class: "form-control", required: true  %>
     </div>
-    <p>Company specific</p>
-    <div class="form-group">
-        <%= f.label :company, "Company name: ", class: "col-md-1 control-label"%>
-        <div class="col-md-2">
-            <%= f.text_field :company, class: "form-control" %>
-        </div>
+  </div>
+  <hr class="edit_hr">
+  <p>Student specific</p>
+  <div class="form-group">
+    <div class="col-md-3">
+      <%= f.label :course, "Course: ", class: "control-label" %>
     </div>
-    <br>
-    <div class="row">
-        <%= f.submit "Submit", class: "col-md-4 col-md-offset-2 btn btn-default btn-primary" %>
-        <% end %>
+    <div class="col-md-6">
+      <%= f.text_field :course, class: "form-control" %>
     </div>
+  </div>
+  <div class="form-group">
+    <div class="col-md-3">
+      <%= f.label :category, "Category: ", class: "control-label"%>
+    </div>
+    <div class="col-md-2">
+      <%= f.select(:category, options_for_select([['Thesis', 'Thesis'], ['Candidate', 'Candidate'],['Bachelor', 'Bachelor']]), {}, {class: "form-control"}) %>
+    </div>
+  </div>
+  <hr class="edit_hr">
+  <p>Company specific</p>
+  <div class="form-group">
+    <div class="col-md-3">
+      <%= f.label :company, "Company name: ", class: "control-label"%>
+    </div>
+    <div class="col-md-6">
+      <%= f.text_field :company, class: "form-control" %>
+    </div>
+  </div>
+  <hr class="edit_hr">
+  <p>Workflow</p>
+  <div class="form-group">
+    <div class="col-md-3">
+      <%= f.label :vcs_url, "VCS url: ", class: "control-label"%>
+    </div>
+    <div class="col-md-6">
+      <%= f.text_field :vsc_url, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group ">
+    <div class="col-md-3">
+      <%= f.label :project_managment_service, "Management Service url: ", class: "control-label"%>
+    </div>
+    <div class="col-md-6">
+      <%= f.text_field :project_managment_service, class: "form-control" %>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <%= f.submit "Submit", class: "col-md-4 col-md-offset-2 btn btn-default btn-primary" %>
+    <% end %>
+  </div>
 </div>

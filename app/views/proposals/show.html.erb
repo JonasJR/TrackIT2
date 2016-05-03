@@ -1,51 +1,51 @@
 <% if signed_in? %>
-  <% if (@proposal.user_id == current_user.id) %>
-    <%= link_to 'Edit', edit_proposal_path(@proposal) %>
-  <% end %>
+<% if (@proposal.user_id == current_user.id) %>
+<%= link_to 'Edit', edit_proposal_path(@proposal) %>
+<% end %>
 <% end %>
 <h1><%= @proposal.name %></h1>
 <small>By Jerry pedersen</small>
 <hr>
 <div class="row">
+  <div class="col-md-1">
+    <strong>Description</strong>
+  </div>
+  <div class="col-md-11">
+    <%= @proposal.description %>
+  </div>
+  <hr>
+  <div class="row">
+    <div id="github">
+      <% if(@proposal.vsc_url != nil) %>
+      <div class="col-md-1">
+        <img src="http://uxrepo.com/static/icon-sets/zocial/svg/github-circled.svg" alt="github" height="42" width="42"/>
+      </div>
+      <div class="col-md-2">
+        <a href="https://github.com/JonasJR/TrackIT2">
+          Följ projektets VCS.
+        </a>
+      </div>
+      <% end %>
+    </div>
+    <div id="trello">
+      <% if(@proposal.project_managment_service != nil) %>
+      <div class="col-md-1">
+        <img src="http://uxrepo.com/static/icon-sets/font-awesome/svg/trello.svg" alt="trello" height="42" width="42"/>
+      </div>
+      <div class="col-md-2">
+        <a href="https://trello.com/b/6zABOK49/trackit2">
+          Följ projektet på Trello.
+        </a>
+      </div>
+      <% end %>
+    </div>
     <div class="col-md-1">
-        <strong>Description</strong>
+      <img src="http://image005.flaticon.com/55/svg/60/60543.svg" alt="mail" height="42" width="42"/>
     </div>
-    <div class="col-md-11">
-        <%= @proposal.description %>
+    <div class="col-md-2">
+      <a href="http://gmail.com/">
+        Kontakta projektets ansvariga via mail.
+      </a>
     </div>
-    <hr>
-    <div class="row">
-        <div class="col-md-1">
-            <img src="http://uxrepo.com/static/icon-sets/zocial/svg/github-circled.svg" alt="github" height="42" width="42"/>
-        </div>
-        <div class="col-md-2">
-            <a href="https://github.com/JonasJR/TrackIT2">
-                Följ projektets VCS.
-            </a>
-        </div>
-        <div class="col-md-1">
-            <img src="http://uxrepo.com/static/icon-sets/font-awesome/svg/trello.svg" alt="trello" height="42" width="42"/>
-        </div>
-        <div class="col-md-2">
-            <a href="https://trello.com/b/6zABOK49/trackit2">
-                Följ projektet på Trello.
-            </a>
-        </div>
-        <div class="col-md-1">
-            <img src="http://image005.flaticon.com/1/png/512/51/51736.png" alt="slack" height="42" width="42"/>
-        </div>
-        <div class="col-md-2">
-            <a href="https://slack.com/">
-                Följ projektet på Slack.
-            </a>
-        </div>
-        <div class="col-md-1">
-            <img src="http://image005.flaticon.com/55/svg/60/60543.svg" alt="mail" height="42" width="42"/>
-        </div>
-        <div class="col-md-2">
-            <a href="http://gmail.com/">
-                Kontakta projektets ansvariga via mail.
-            </a>
-        </div>
-    </div>
+  </div>
 </div>
