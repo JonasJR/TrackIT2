@@ -4,14 +4,19 @@
 <% end %>
 <% end %>
 <h1><%= @proposal.name %></h1>
-<small>By Jerry pedersen</small>
+<h2><%= @username %></h2>
+<small>Submitted at: <b> <%= @proposal.created_at %></b></small>
 <hr>
 <div class="row">
+  <div class="row">
     <div class="col-md-1">
-        <strong>Description</strong>
+        <strong>Description:</strong>
     </div>
-    <div class="col-md-11">
+    </div>
+    <div class="row">
+      <div class="col-md-10">
         <%= @proposal.description %>
+        </div>
     </div>
     <hr>
     <div class="row">
