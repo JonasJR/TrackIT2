@@ -17,28 +17,17 @@
   <div class="row">
     <div id="github">
       <% unless @proposal.vsc_url.blank? %>
-      <div class="col-md-1">
-        <img src="http://uxrepo.com/static/icon-sets/zocial/svg/github-circled.svg" alt="github" height="42" width="42"/>
-      </div>
       <div class="col-md-2">
-        <%= link_to "Följ projektets VCS.", url_with_protocol(@proposal.vsc_url), :target => '_blank' %>
+        <%= link_to ('<i id="glyphbook" class="glyphicon glyphicon-book"></i>Följ projektets VCS.').html_safe, url_with_protocol(@proposal.vsc_url), :target => '_blank' %>
         <% end %>
       </div>
     </div>
     <div id="trello">
       <% unless @proposal.project_managment_service.blank? %>
-      <div class="col-md-1">
-        <img src="http://uxrepo.com/static/icon-sets/font-awesome/svg/trello.svg" alt="trello" height="42" width="42"/>
-      </div>
       <div class="col-md-2">
-        <a href="<%= @proposal.project_managment_service %>">
-          Följ projektet på Trello.
-        </a>
+        <%= link_to ('<i id="glyphpen" class="glyphicon glyphicon-book"></i>Följ projektets management service.').html_safe, url_with_protocol(@proposal.project_managment_service), :target => '_blank' %>
+        <% end %>
       </div>
-      <% end %>
-    </div>
-    <div class="col-md-1">
-      <img src="http://image005.flaticon.com/55/svg/60/60543.svg" alt="mail" height="42" width="42"/>
     </div>
     <div class="col-md-2">
       <a href="http://gmail.com/">
