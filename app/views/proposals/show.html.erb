@@ -5,41 +5,45 @@
 <% end %>
 <h1><%= @proposal.name %></h1>
 <h2><%= @username %></h2>
-<small>Submitted at: <b> <%= @proposal.created_at %></b></small>
+<small>Submitted at:
+  <b>
+    <%= @proposal.created_at %></b>
+</small>
 <hr>
 <div class="row">
-  <div class="row">
+  <div >
     <div class="col-md-1">
-        <strong>Description:</strong>
+      <strong>Description:</strong>
     </div>
+    <br>
+  </div>
+  <div>
+    <div class="col-md-10">
+      <%= @proposal.description %>
     </div>
-    <div class="row">
-      <div class="col-md-10">
-        <%= @proposal.description %>
-        </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div id="github">
+      <% unless @proposal.vsc_url.blank? %>
+      <div class="col-md-2">
+        <%= link_to ('<i class="glyphicon glyphicon-book"></i><br>Följ projektets VCS.').html_safe, url_with_protocol(@proposal.vsc_url), :target => '_blank' %>
+        <% end %>
+      </div>
     </div>
-    <hr>
-    <div class="row">
-        <div id="github">
-            <% unless @proposal.vsc_url.blank? %>
-            <div class="col-md-2">
-                <%= link_to ('<i class="glyphicon glyphicon-book"></i><br>Följ projektets VCS.').html_safe, url_with_protocol(@proposal.vsc_url), :target => '_blank' %>
-                <% end %>
-            </div>
-        </div>
-        <div id="trello">
-            <% unless @proposal.project_managment_service.blank? %>
-            <div class="col-md-2">
-                <%= link_to ('<i class="glyphicon glyphicon-dashboard"></i><br>Följ projektets management service.').html_safe, url_with_protocol(@proposal.project_managment_service), :target => '_blank' %>
-                <% end %>
-            </div>
-        </div>
-        <div class="row" id="trello">
-            <% unless @username.blank? %>
-            <div class="col-md-2">
-                <%= link_to ('<i class="glyphicon glyphicon-envelope"></i><br>Skicka ett mail till projektet.').html_safe, 'mailto:' + @username + '?Subject=TrackIT%20Email%20Service' %>
-                <% end %>
-            </div>
-        </div>
+    <div id="trello">
+      <% unless @proposal.project_managment_service.blank? %>
+      <div class="col-md-2">
+        <%= link_to ('<i class="glyphicon glyphicon-dashboard"></i><br>Följ projektets management service.').html_safe, url_with_protocol(@proposal.project_managment_service), :target => '_blank' %>
+        <% end %>
+      </div>
     </div>
+    <div class="row" id="trello">
+      <% unless @username.blank? %>
+      <div class="col-md-2">
+        <%= link_to ('<i class="glyphicon glyphicon-envelope"></i><br>Email projekt owner.').html_safe, 'mailto:' + @username + '?Subject=TrackIT%20Email%20Service' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>
