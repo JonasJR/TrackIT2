@@ -23,9 +23,13 @@
 $(document).ready(function() {
   spanColors();
 
+
+});
+
 $(document).on('ready page:load', function() {
   spanColors();
 });
+
 
 function spanColors() {
   var span = $('.spans');
