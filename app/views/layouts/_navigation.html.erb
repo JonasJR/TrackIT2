@@ -34,7 +34,8 @@
   </ul>
   <ul class="nav navbar-nav navbar-right">
     <% if signed_in? %>
-      <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></a></li>
+      <li><%= link_to "Edit profile", edit_user_registration_path %></li>
+      <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
     <% else %>
     <li><%= link_to 'Sign in / Sign up', new_user_session_path %></li>
     <% end %>
