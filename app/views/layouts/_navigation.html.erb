@@ -19,17 +19,17 @@
     <li class="<%= is_active?('/proposals/new?page=student') %><%= is_active?('/proposals/new?page=company') %> dropdown">
       <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Submit <span class="caret"></span></a>
       <ul class="dropdown-menu">
-        <li class="<%= is_active?('/proposals/new?page=student') %>"><%= link_to "Student submit", '/proposals/new?page=student' %></li>
-        <li class="<%= is_active?('/proposals/new?page=company') %>"><%= link_to "Company submit", '/proposals/new?page=company' %></li>
+        <li class="<%= is_active?(new_proposal_path + '?page=student') %>"><%= link_to "Student submit", new_proposal_path + '?page=student' %></li>
+        <li class="<%= is_active?(new_proposal_path + '?page=company') %>"><%= link_to "Company submit", new_proposal_path + '?page=company' %></li>
       </ul>
     </li>
     <% else %>
-      <li class="<%= "hej" %><%= is_active?('/proposals') %><%= is_active?('/proposals/approve') %>"><%= link_to "Submit", '/users/sign_in' %></li>
+      <li class="<%= "hej" %><%= is_active?(proposals_path) %><%= is_active?(proposals_approve_path) %>"><%= link_to "Submit", new_user_session_path %></li>
     <% end %>
 
-    <li class="<%= is_active?('/proposals') %>"><%= link_to "Browse", '/proposals' %></li>
+    <li class="<%= is_active?(proposals_path) %>"><%= link_to "Browse", proposals_path, method: :get %></li>
     <% if current_user.try(:teacher?) %>
-      <li class="<%= is_active?('/proposals/approve') %>"><%= link_to "Approve", '/proposals/approve' %></li>
+      <li class="<%= is_active?(proposals_approve_path) %>"><%= link_to "Approve", proposals_approve_path %></li>
     <% else %>
     <% end %>
       </ul>
@@ -41,7 +41,7 @@
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.email %> <span class="caret"></span></a>
         <ul class="dropdown-menu">
           <li class="<%= is_active?(edit_user_registration_path) %>"><%= link_to 'Edit profile', edit_user_registration_path %></li>
-          <li class="<%= is_active?('/proposals/new?page=company') %>"><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
+          <li class="<%= is_active?(new_proposal_path + '?page=company') %>"><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
         </ul>
       </li>
     <% else %>
