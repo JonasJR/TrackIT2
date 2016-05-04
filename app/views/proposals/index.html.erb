@@ -23,7 +23,7 @@
             <% if p.approved? %>
             <tr data-link="<%= proposal_path(p) %>">
                 <td><%= p.name %></td>
-                <td><%= p.description %></td>
+                <td class="breakable"><%= truncate(p.description, length: 120) %></td>
                 <td class="center"><%= p.category %></td>
                 <% if current_user.try(:teacher?) %>
                   <td class="center"><%= link_to ('<i id="removeglyph" class="glyphicon glyphicon-remove"></i>').html_safe, p, data: {:confirm => 'Are you sure?'}, :method => :delete %></td>
