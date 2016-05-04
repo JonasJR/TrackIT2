@@ -21,8 +21,6 @@
     </div>
   </div>
   <% if @page == "student" %>
-  <hr class="submit_hr">
-  <p>Student specific</p>
   <div class="form-group">
     <div class="col-md-2">
       <%= f.label :course, "Course: ", class: "control-label" %>
@@ -35,18 +33,16 @@
     <div class="col-md-2">
       <%= f.label :category, "Category: ", class: "control-label"%>
     </div>
-    <div class="col-md-2">
+    <div class="col-md-6">
       <%= f.select(:category, options_for_select([['Thesis', 'Thesis'], ['Candidate', 'Candidate'],['Bachelor', 'Bachelor']]), {}, {class: "form-control"}) %>
     </div>
   </div>
 <% else %>
-  <hr class="submit_hr">
-  <p>Company specific</p>
   <div class="form-group">
     <div class="col-md-2">
       <%= f.label :company, "Company name: ", class: "control-label"%>
     </div>
-    <div class="col-md-2">
+    <div class="col-md-6">
       <%= f.text_field :company, class: "form-control" %>
     </div>
   </div>
