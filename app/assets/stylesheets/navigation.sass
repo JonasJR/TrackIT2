@@ -71,3 +71,36 @@ nav.navbar
     &:focus
       background-color: inherit
       color: white
+
+.navbar-nav
+  .open
+    a, a:focus
+      background-color: #333
+
+  .dropdown
+    background-color: #333
+
+    &:focus
+      background-color: #333
+
+    &:select
+      background-color: #333
+
+    &:active
+      background-color: #333
+
+    .open
+      background-color: #333
+
+    .dropdown-menu
+      padding: 0
+      margin-top: 3px
+      border: 1px solid #333
+
+      a
+        background-color: #333
+        color: white
+        border-top: 0
+
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus
+  background-color: #333
