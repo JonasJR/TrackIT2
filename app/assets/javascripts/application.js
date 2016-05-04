@@ -23,28 +23,9 @@
 $(document).ready(function() {
   spanColors();
 
-  $('a[data-toggle="tab"]').on('click.bs.tab', function(e) {
-    if (this.id === "signup-taba") {
-      $("#loginModalLabel").html("SIGN UP");
-    } else {
-      $("#loginModalLabel").html("LOG IN");
-    }
-    activaTab('aaa');
-  });
-
-  $('.forgetpass-tab').on("click.bs.tab", function(e) {
-    $("#loginModalLabel").html("RETRIEVE PASSWORD");
-    activaTab('ccc');
-  });
-});
-
 $(document).on('ready page:load', function() {
   spanColors();
 });
-
-function activaTab(tab) {
-  $('.nav-tabs a[href="#' + tab + '"]').tab('show');
-};
 
 function spanColors() {
   var span = $('.spans');
