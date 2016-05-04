@@ -14,6 +14,7 @@
 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
   <ul class="nav navbar-nav">
     <li class="<%= is_active?('/') %>"><%= link_to "Home", '/' %></li>
+
     <% if signed_in? %>
     <li class="<%= is_active?('/proposals/new?page=student') %><%= is_active?('/proposals/new?page=company') %> dropdown">
       <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Submit <span class="caret"></span></a>
@@ -21,9 +22,11 @@
         <li class="<%= is_active?('/proposals/new?page=student') %>"><%= link_to "Student submit", '/proposals/new?page=student' %></li>
         <li class="<%= is_active?('/proposals/new?page=company') %>"><%= link_to "Company submit", '/proposals/new?page=company' %></li>
       </ul>
+    </li>
     <% else %>
       <li class="<%= "hej" %><%= is_active?('/proposals') %><%= is_active?('/proposals/approve') %>"><%= link_to "Submit", '/users/sign_in' %></li>
     <% end %>
+
     <li class="<%= is_active?('/proposals') %>"><%= link_to "Browse", '/proposals' %></li>
     <% if current_user.try(:teacher?) %>
       <li class="<%= is_active?('/proposals/approve') %>"><%= link_to "Approve", '/proposals/approve' %></li>
@@ -34,10 +37,15 @@
   </ul>
   <ul class="nav navbar-nav navbar-right">
     <% if signed_in? %>
-      <li><%= link_to "Edit profile", edit_user_registration_path %></li>
-      <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.email %> <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li class="<%= is_active?(edit_user_registration_path) %>"><%= link_to 'Edit profile', edit_user_registration_path %></li>
+          <li class="<%= is_active?('/proposals/new?page=company') %>"><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
+        </ul>
+      </li>
     <% else %>
-    <li><%= link_to 'Sign in / Sign up', new_user_session_path %></li>
+      <li><%= link_to 'Sign in / Sign up', new_user_session_path %></li>
     <% end %>
   </ul>
 

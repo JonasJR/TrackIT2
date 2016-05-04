@@ -22,7 +22,7 @@
             <% unless p.approved? %>
               <tr data-link="<%= proposal_path(p) %>">
                 <td class="col-md-3 clickable"><%= p.name %></td>
-                <td class="col-md-4 clickable"><%= p.description %></td>
+                <td class="col-md-4 clickable breakable"><%= truncate(p.description, length: 50) %></td>
                 <td class="col-md-3 clickable"><%= p.category %></td>
                 <td class="col-md-1 centered"><%= link_to ('<i id="acceptglyph" class="glyphicon glyphicon-ok"></i>').html_safe, proposal_approved_path(p), method: :put, data: {:confirm => 'Are you sure?'} %></td>
                 <td class="col-md-1 centered"><%= link_to ('<i id="removeglyph" class="glyphicon glyphicon-remove"></i>').html_safe, p, data: {:confirm => 'Are you sure?'}, :method => :delete %></td>
