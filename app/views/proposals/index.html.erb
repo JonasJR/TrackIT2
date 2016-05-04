@@ -12,9 +12,9 @@
             <tr>
                 <th>Name</th>
                 <th>Description</th>
-                <th>Category</th>
+                <th class="center">Category</th>
                 <% if current_user.try(:teacher?) %>
-                  <th>Remove</th>
+                  <th class="center">Remove</th>
                 <% end %>
             </tr>
         </thead>
@@ -24,9 +24,9 @@
             <tr data-link="<%= proposal_path(p) %>">
                 <td><%= p.name %></td>
                 <td><%= p.description %></td>
-                <td><%= p.category %></td>
+                <td class="center"><%= p.category %></td>
                 <% if current_user.try(:teacher?) %>
-                  <td><%= link_to ('<i id="removeglyph" class="glyphicon glyphicon-remove"></i>').html_safe, p, data: {:confirm => 'Are you sure?'}, :method => :delete %></td>
+                  <td class="center"><%= link_to ('<i id="removeglyph" class="glyphicon glyphicon-remove"></i>').html_safe, p, data: {:confirm => 'Are you sure?'}, :method => :delete %></td>
                 <% end %>
             </tr>
             <% end %>
