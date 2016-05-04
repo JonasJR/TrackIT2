@@ -15,7 +15,12 @@
   <ul class="nav navbar-nav">
     <li class="<%= is_active?('/') %>"><%= link_to "Home", '/' %></li>
     <% if signed_in? %>
-      <li class="<%= is_active?('/proposals/new') %>"><%= link_to "Submit", '/proposals/new' %></li>
+    <li class="dropdown">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Submit <span class="caret"></span></a>
+      <ul class="dropdown-menu">
+        <li class="<%= is_active?('/proposals/new?page=student') %>"><%= link_to "Student submit", '/proposals/new?page=student' %></li>
+        <li class="<%= is_active?('/proposals/new?page=company') %>"><%= link_to "Company submit", '/proposals/new?page=company' %></li>
+      </ul>
     <% else %>
       <li class="<%= is_active?('/users/sign_in') %>"><%= link_to "Submit", '/users/sign_in' %></li>
     <% end %>
