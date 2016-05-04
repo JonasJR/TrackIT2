@@ -7,7 +7,8 @@ Rails.application.routes.draw do
 
   get 'proposals/approve'
 
-  devise_for :users
+  devise_for :users, :controllers => { registrations: 'registrations' }
+  
   resources :proposals do
     get :approved
   end
