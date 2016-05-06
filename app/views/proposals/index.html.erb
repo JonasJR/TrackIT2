@@ -1,41 +1,84 @@
 <div id="browse">
     <h2>Browse
         <span class="spans">I</span>t</h2>
-        <div class="row">
-          <div class="col-xs-4">
+    <% if current_user != nil %>
+    <% unless current_user.proposals.count < 1%>
+    <div class="row">
+        <h3>My projects</h3>
+        <table class="table table-hover" id="browse-own-proposals" data-role="table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th class="center">Category</th>
+                    <% if current_user.try(:teacher?) %>
+                    <th class="center">Remove</th>
+                    <% end %>
+                    <th>Approved</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% @proposals.each do |p| %>
+                <% if p.user_id == current_user.id %>
+                <tr data-link="<%= proposal_path(p) %>">
+                    <td><%= p.name %></td>
+                    <td class="breakable"><%= truncate(p.description, length: 120) %></td>
+                    <td class="center"><%= p.category %></td>
+                    <% if current_user.try(:teacher?) %>
+                    <td class="center"><%= link_to ('<i id="removeglyph" class="glyphicon glyphicon-remove"></i>').html_safe, p, data: {:confirm => 'Are you sure?'}, :method => :delete %></td>
+                    <% end %>
+                    <% if p.approved %>
+                    <td class="center"><i class="glyphicon glyphicon-ok"></i></td>
+                    <% else %>
+                    <td class="center"><i class="glyphicon glyphicon-time"></i></td>
+                    <% end %>
+                </tr>
+                <% end %>
+                <% end %>
+            </tbody>
+        </table>
+        <hr class="edit_hr">
+    </div>
+    <% end %>
+    <% end %>
+    <div class="row">
+        <h3>All approved projects</h3>
+        <div class="col-xs-4">
             <label for="admin-search">Search proposal:</label>
             <input class="form-control light-table-filter" type="search" data-table="order-table" id="admin-search" placeholder="Proposal">
-          </div>
         </div>
-    <table class="table table-hover order-table" id="browse-proposals" data-role="table">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Description</th>
-                <th class="center">Category</th>
-                <% if current_user.try(:teacher?) %>
-                  <th class="center">Remove</th>
+    </div>
+    <div class="row">
+        <table class="table table-hover order-table" id="browse-proposals" data-role="table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th class="center">Category</th>
+                    <% if current_user.try(:teacher?) %>
+                    <th class="center">Remove</th>
+                    <% end %>
+                </tr>
+            </thead>
+            <tbody>
+                <% @proposals.each do |p| %>
+                <% if p.approved? %>
+                <tr data-link="<%= proposal_path(p) %>">
+                    <td><%= p.name %></td>
+                    <td class="breakable"><%= truncate(p.description, length: 120) %></td>
+                    <td class="center"><%= p.category %></td>
+                    <% if current_user.try(:teacher?) %>
+                    <td class="center"><%= link_to ('<i id="removeglyph" class="glyphicon glyphicon-remove"></i>').html_safe, p, data: {:confirm => 'Are you sure?'}, :method => :delete %></td>
+                    <% end %>
+                </tr>
                 <% end %>
-            </tr>
-        </thead>
-        <tbody>
-            <% @proposals.each do |p| %>
-            <% if p.approved? %>
-            <tr data-link="<%= proposal_path(p) %>">
-                <td><%= p.name %></td>
-                <td class="breakable"><%= truncate(p.description, length: 120) %></td>
-                <td class="center"><%= p.category %></td>
-                <% if current_user.try(:teacher?) %>
-                  <td class="center"><%= link_to ('<i id="removeglyph" class="glyphicon glyphicon-remove"></i>').html_safe, p, data: {:confirm => 'Are you sure?'}, :method => :delete %></td>
                 <% end %>
-            </tr>
-            <% end %>
-            <% end %>
-        </tbody>
-    </table>
+            </tbody>
+        </table>
+    </div>
 </div>
 <script type="text/javascript">
-$("tr").click(function() {
-  window.location = $(this).data("link")
-});
+    $("tr").click(function () {
+        window.location = $(this).data("link")
+    });
 </script>

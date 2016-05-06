@@ -3,6 +3,7 @@
     <span>I</span>t</h2>
 
   <%= form_for @editproposal, :html => {:class => "form-horizontal "} do |f| %>
+  <% unless @editproposal.approved && !current_user.teacher?%>
   <div class="form-group">
     <div class="col-md-3">
       <%= f.label :title, "*Title: ", class: "control-label" %>
@@ -48,6 +49,7 @@
     </div>
   </div>
   <hr class="edit_hr">
+  <% end %>
   <p>Workflow</p>
   <div class="form-group">
     <div class="col-md-3">

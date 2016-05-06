@@ -6,7 +6,7 @@
   <%= form_for @newproposal, :html => { :class => "form-horizontal" } do |f| %>
   <div class="form-group">
     <div class="col-md-2">
-      <%= f.label :title, "*Title: ", class: "control-label" %>
+      <%= f.label :title, "Title: ", class: "control-label" %>
     </div>
     <div class="col-md-6">
       <%= f.text_field :name, class: "form-control", required: true %>
@@ -14,7 +14,7 @@
   </div>
   <div class="form-group">
     <div class="col-md-2">
-      <%= f.label :description, "*Description: ", class: "control-label" %>
+      <%= f.label :description, "Description: ", class: "control-label" %>
     </div>
     <div class="col-md-6">
       <%= f.text_area :description, class: "form-control", required: true  %>
