@@ -18,9 +18,6 @@
 //= require turbolinks
 //= require_tree .
 
-$(document).ready(function() {
-  search(document);
-});
 
 $(document).on('ready page:load', function() {
   search(document);
