@@ -25,13 +25,14 @@ class ProposalsController < ApplicationController
 
   def approved
     if current_user.try(:teacher?)
-      session[:return_to] ||= request.referer
       @approvedproposal = Proposal.find(params[:id])
       @approvedproposal.approved = true
       @approvedproposal.save
+
       UserMailer.approved_email(current_user.name, @approvedproposal).deliver_now
+
       flash[:success] = "Proposal approved!"
-      redirect_to session.delete(:return_to)
+      redirect_to proposals_approve_path
     else
       flash[:error] = "Error, you don't have permission to approve"
       redirect_to root_url

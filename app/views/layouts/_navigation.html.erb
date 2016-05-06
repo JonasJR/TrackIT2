@@ -30,7 +30,6 @@
     <li class="<%= is_active?(proposals_path) %>"><%= link_to "Browse", proposals_path, method: :get %></li>
     <% if current_user.try(:teacher?) %>
       <li class="<%= is_active?(proposals_approve_path) %>"><%= link_to "Approve", proposals_approve_path %></li>
-    <% else %>
     <% end %>
       </ul>
     </li>
