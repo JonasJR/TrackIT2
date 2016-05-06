@@ -1,18 +1,21 @@
 <div id="home">
-    <h1>Track<span class="spans">I</span>t</h1>
-    <p class="lead">- proposals that makes people land on Mars</p>
-    <p class="submitted-before">Have you submitted before? Click <%= link_to 'here', new_user_session_path %> to sign in!</p>
-    <div class="row">
-        <div class="col-sm-12">
-            <%= link_to new_proposal_path + "?page=student", class: 'btn btn-large student' do %>
-                <i class="glyphicon glyphicon-education"></i><br><hr>Student submit
-            <% end %>
-            <%= link_to new_proposal_path + "?page=company", class: 'btn btn-large company' do %>
-                <i class="glyphicon glyphicon-briefcase"></i><br><hr>Company submit
-            <% end %>
-            <%= link_to proposals_path, class: 'btn btn-large browse' do %>
-                <i class="glyphicon glyphicon-search"></i><br><hr>Browse proposals
-            <% end %>
-        </div>
+  <h1>Track
+    <span class="spans">I</span>t</h1>
+  <p class="lead">- proposals that makes people land on Mars</p>
+  <p class="submitted-before">Have you submitted before? Click
+    <%= link_to 'here', new_user_session_path %>
+    to sign in!</p>
+  <div class="row">
+    <div class="col-sm-12">
+      <%= link_to new_proposal_path + "?page=student", class: 'btn btn-large student' do %>
+      <i class="glyphicon glyphicon-education"></i><br><hr>Student submit
+      <% end %>
+      <%= link_to new_proposal_path + "?page=company", class: 'btn btn-large company' do %>
+      <i class="glyphicon glyphicon-briefcase"></i><br><hr>Company submit
+      <% end %>
+      <%= link_to proposals_path, class: 'btn btn-large browse' do %>
+      <i class="glyphicon glyphicon-search"></i><br><hr>Browse proposals
+      <% end %>
     </div>
+  </div>
 </div>
