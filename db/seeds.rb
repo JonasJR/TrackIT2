@@ -8,8 +8,8 @@
 
 # id, name, desc, category, course, company, approved, vsc_url, project_managment_service
 proposals = [
-  [1, 'Track IT', 'flksdajflsdkafjsad dsfkj adslkfjdsalkf dsf klds jfkldsfj klds jfkldsjf ldsa fjlkds f', 'Mah', '', '', false, '', '' ],
-  [1, 'Skånetrafiken', 'App för att fixa nätverkstrafiken på skånetrafiken. ', '', '', '', false, '', '' ]
+  [4, 'Track IT', 'flksdajflsdkafjsad dsfkj adslkfjdsalkf dsf klds jfkldsfj klds jfkldsjf ldsa fjlkds f', 'Mah', '', '', false, '', '' ],
+  [4, 'Skånetrafiken', 'App för att fixa nätverkstrafiken på skånetrafiken. ', '', '', '', false, '', '' ]
 ]
 
 proposals.each do |id, name, desc, category, course, company, approved, vsc_url, project_managment_service|

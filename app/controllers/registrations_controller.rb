@@ -4,6 +4,10 @@ class RegistrationsController < Devise::RegistrationsController
     edit_user_registration_path(resource)
   end
 
+  def after_sign_up_path_for(resource)
+    root_url
+  end
+
   private
 
     def sign_up_params

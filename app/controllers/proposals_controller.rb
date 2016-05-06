@@ -29,6 +29,7 @@ class ProposalsController < ApplicationController
       @approvedproposal = Proposal.find(params[:id])
       @approvedproposal.approved = true
       @approvedproposal.save
+      UserMailer.approved_email(current_user.name, @approvedproposal).deliver_now
       flash[:success] = "Proposal approved!"
       redirect_to session.delete(:return_to)
     else

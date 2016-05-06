@@ -14,4 +14,8 @@ class User < ActiveRecord::Base
     return false if teacher.nil?
     teacher
   end
+
+  def name
+    "#{firstname} #{lastname}"
+  end
 end
