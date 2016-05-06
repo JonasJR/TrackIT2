@@ -14,11 +14,18 @@
     <div class="container">
 
       <% flash.each do |key, value| %>
-        <div class="alert alert-<%= key %>"><%= value %></div>
+      <div class="alert alert-<%= key %>"><%= value %></div>
       <% end %>
 
       <div class="jumbotron">
         <%= yield %>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 center">
+          <p>KONTAKT Tel: +46 40 665 70 00 Malmö högskola 205 06 Malmö Sweden
+          </p>
+          <a href="#">Example@mah.se</a>
+        </div>
       </div>
 
     </div>
