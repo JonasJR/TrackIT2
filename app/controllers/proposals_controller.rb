@@ -14,7 +14,7 @@ class ProposalsController < ApplicationController
   def edit
     @editproposal = Proposal.find(params[:id])
     unless (current_user.id == @editproposal.user_id) or (current_user.try(:teacher?))
-      flash[:success] = "You are not allowed to edit this!"
+      flash[:error] = "You are not allowed to edit this!"
       redirect_to proposal_url(@editproposal)
     end
   end
@@ -74,7 +74,7 @@ def create
     proposal.approved = false
 
     if proposal.save
-      redirect_to root_url
+      redirect_to proposals_url
       flash[:success] = "Proposal submited with no errors"
     else
       render :new

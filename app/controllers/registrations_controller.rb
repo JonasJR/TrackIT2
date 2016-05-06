@@ -4,6 +4,11 @@ class RegistrationsController < Devise::RegistrationsController
     edit_user_registration_path(resource)
   end
 
+  def after_sign_up_path_for(resource)
+    flash[:warning] = "Please edit your profile information in the top right hand corner!"
+    root_url
+  end
+
   private
 
     def sign_up_params
