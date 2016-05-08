@@ -18,10 +18,10 @@
 
         tbody.order-table-body
           - @users.each do |user|
-            tr data-id="=edit_admin_url(user.id)"
-              td =user.name
-              td =user.email
-              td.center ="√" if user.teacher?
+            tr data-id = edit_admin_url(user.id)
+              td = user.name
+              td = user.email
+              td.center = "√" if user.teacher?
               td.center = "√" if user.admin?
 
 javascript:

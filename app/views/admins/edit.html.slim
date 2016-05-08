@@ -1,0 +1,15 @@
+h1 =@user.name
+p.lead =@user.email
+p Roles
+
+= form_for(@user, url: admin_path, method: :put) do |f|
+  .checkbox
+    = f.label :teacher do
+      = f.check_box :teacher
+      = :Teacher
+    br
+    = f.label :admin do
+      = f.check_box :admin
+      = :Admin
+
+  = f.submit :update, class: 'btn btn-primary'
