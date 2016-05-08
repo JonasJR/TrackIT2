@@ -1,40 +1,30 @@
-<div id="admin">
-  <h1>Admin</h1>
-  <div class="row">
-    <div class="col-xs-4">
-      <label for="admin-search">Search user:</label>
-      <input class="form-control light-table-filter" type="search" data-table="order-table" id="admin-search" placeholder="Search">
-    </div>
-  </div>
-  <br>
-  <div class="row">
-    <div class="col-xs-12">
-      <table data-role="table" class="table table-hover order-table">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Email</th>
-            <th class="center">Teacher</th>
-            <th class="center">Admin</th>
-          </tr>
-        </thead>
-        <tbody class="order-table-body">
-          <% @users.each do |user| %>
-          <tr data-id="<%= edit_admin_url(user.id) %>">
-            <td><%= user.firstname %>
-              <%= user.lastname %></td>
-            <td><%= user.email %></td>
-            <td class="center"><%= "√" if user.teacher? %></td>
-            <td class="center"><%= "√" if user.admin? %></td>
-          </tr>
-          <% end %>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</div>
+#admin
+  h1 Admin
+  .row
+    .col-xs-4
+      label for="admin-search" Search user:
+      input#admin-search.form-control.light-table-filter type="search" data-table="order-table" placeholder="Search"
 
-<script type="text/javascript">
+  br
+  .row
+    .col-xs-12
+      table.table.table-hover.order-table data-role="table"
+        thead
+          tr
+            th Name
+            th Email
+            th.center Teacher
+            th.center Admin
+
+        tbody.order-table-body
+          - @users.each do |user|
+            tr data-id="=edit_admin_url(user.id)"
+              td =user.name
+              td =user.email
+              td.center ="√" if user.teacher?
+              td.center = "√" if user.admin?
+
+javascript:
   (function (document) {
     'use strict';
 
@@ -77,4 +67,3 @@
     });
 
   })(document);
-</script>
