@@ -24,7 +24,7 @@
       </ul>
     </li>
     <% else %>
-      <li class="<%= "hej" %><%= is_active?(proposals_path) %><%= is_active?(proposals_approve_path) %>"><%= link_to "Submit", new_user_session_path %></li>
+      <li class="<%= is_active?(proposals_path) %><%= is_active?(proposals_approve_path) %>"><%= link_to "Submit", new_user_session_path %></li>
     <% end %>
 
     <li class="<%= is_active?(proposals_path) %>"><%= link_to "Browse", proposals_path, method: :get %></li>
