@@ -1,0 +1,26 @@
+doctype html
+html
+  head
+    title TrackIT2
+    meta name="viewport" content="width=device-width, initial-scale=1"
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+
+  body data-signed-in=(signed_in? ? "true" : "false")
+    = render 'layouts/navigation'
+
+    .container
+      - flash.each do |key, value|
+        = content_tag :div, value, class: "alert alert-#{key}"
+
+      .jumbotron
+        = yield
+
+  footer.footer
+    .container
+      .row
+        .col-xs-12.center
+          p.text-muted
+            ' Kontakt tel: +46 40 665 70 00 Malmö Högskola 205 06 Malmö Sweden
+            a href="#" Example@mah.se
