@@ -5,9 +5,10 @@
     <br>
   </div>
   <% if current_user != nil %>
-  <% unless current_user.proposals.count < 1%>
+  <% unless current_user.proposals.count < 1 %>
+  <h3 class="center">My projects</h3>
   <div class="row colortest">
-    <h3>My projects</h3>
+
     <table class="table table-hover" id="browse-own-proposals" data-role="table">
       <thead>
         <tr>
