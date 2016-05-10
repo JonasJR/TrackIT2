@@ -34,6 +34,7 @@
     </table>
   </div>
 </div>
+<%= will_paginate @proposals, renderer: BootstrapPagination::Rails, previous_label: "«", next_label:"»", inner_window:1, outer_window: 1 %>
 <script type="text/javascript">
   $(".clickable").click(function () {
     window.location = $(this).parent().data("link")
