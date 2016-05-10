@@ -14,9 +14,7 @@
           <th>Name</th>
           <th>Description</th>
           <th class="center">Category</th>
-          <% if current_user.try(:teacher?) %>
           <th class="center">Remove</th>
-          <% end %>
           <th class="center">Approved</th>
         </tr>
       </thead>
@@ -27,9 +25,7 @@
           <td><%= p.name %></td>
           <td class="breakable"><%= truncate(p.description, length: 120) %></td>
           <td class="center"><%= p.category %></td>
-          <% if current_user.try(:teacher?) %>
           <td class="center"><%= link_to ('<i id="removeglyph" class="glyphicon glyphicon-remove"></i>').html_safe, p, data: {:confirm => 'Are you sure?'}, :method => :delete %></td>
-          <% end %>
           <% if p.approved %>
           <td class="center">
             <i class="glyphicon glyphicon-ok"></i>
