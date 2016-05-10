@@ -19,7 +19,7 @@
         </tr>
       </thead>
       <tbody>
-        <% @proposals.each do |p| %>
+        <% @myproposals.each do |p| %>
         <% if p.user_id == current_user.id %>
         <tr data-link="<%= proposal_path(p) %>">
           <td><%= p.name %></td>

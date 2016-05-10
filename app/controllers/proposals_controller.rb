@@ -4,6 +4,7 @@ class ProposalsController < ApplicationController
 
   def index
     @proposals = Proposal.approved.order("created_at desc").paginate(page: params[:page], per_page: 10)
+    @myproposals = current_user.proposals
   end
 
   def new
