@@ -48,8 +48,12 @@
     <br>
     <h3>All approved projects</h3>
     <div class="col-sm-offset-8 col-sm-4">
-      <div class="filter-proposals">
-        <input class="form-control light-table-filter" type="search" data-table="order-table" id="admin-search" placeholder="Filter proposals">
+      <div class="filter-proposals form-inline">
+        <%= form_tag(proposals_path, :method => "get", id: "search-form") do %>
+
+        <%= text_field_tag :search, params[:search], :class => "form-control", placeholder: "Search project name" %>
+        <%= submit_tag "Search", :class => "btn btn-primary", :name => nil %>
+        <% end %>
       </div>
     </div>
   </div>

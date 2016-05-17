@@ -4,4 +4,8 @@ class Proposal < ActiveRecord::Base
 
   belongs_to :user
   has_many :motivations
+
+  def self.search(query)
+     where("name like ?","%#{query}%").all
+  end
 end
