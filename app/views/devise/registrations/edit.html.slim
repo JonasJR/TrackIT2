@@ -18,6 +18,13 @@
 
     .form-group
       .col-md-3
+        = f.label :company, "Company", class: "control-label"
+
+      .col-md-3
+        = f.check_box :company
+
+    .form-group
+      .col-md-3
         = f.label :password, "New password", class: "control-label"
 
       .col-md-6
