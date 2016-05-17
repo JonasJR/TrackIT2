@@ -13,9 +13,9 @@
       <%= f.email_field :email, class: 'form-control', autofocus: true, required: "", placeholder: 'Email' %>
     </div>
 
-    <div class="form-group input-group">
-      <%= f.label "Company" %>
-      <%= f.check_box :company, class: 'form-control' %>
+    <div class="form-group field">
+        <%= f.label :company %>
+        <%= f.check_box :company %>
     </div>
 
     <% if @minimum_password_length %>
