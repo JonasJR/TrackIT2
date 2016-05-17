@@ -13,6 +13,11 @@
       <%= f.email_field :email, class: 'form-control', autofocus: true, required: "", placeholder: 'Email' %>
     </div>
 
+    <div class="form-group field">
+        <%= f.label :company %>
+        <%= f.check_box :company %>
+    </div>
+
     <% if @minimum_password_length %>
       <% password_text = "Password (#{ @minimum_password_length } characters minimum)" %>
     <% else %>
@@ -40,5 +45,5 @@
       <%= f.submit 'Sign up', class: 'btn btn-primary btn-block' %>
     </div>
   <% end %>
-  
+
 </div>
