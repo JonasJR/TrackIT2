@@ -3,7 +3,11 @@ class ProposalsController < ApplicationController
   before_action :authenticate, except: [:index, :show]
 
   def index
-    @proposals = Proposal.approved.order("created_at desc").paginate(page: params[:page], per_page: 10)
+    unless params[:search]
+      @proposals = Proposal.approved.order("created_at desc").paginate(page: params[:page], per_page: 10)
+    else
+      @proposals = Proposal.search(params[:search]).order("created_at desc").paginate(:per_page => 10, :page => params[:page])
+    end
     @myproposals = current_user.proposals
   end
 
