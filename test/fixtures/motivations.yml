@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  motivation: MyText
+  user_id: 1
+  proposal_id: 1
+
+two:
+  motivation: MyText
+  user_id: 1
+  proposal_id: 1

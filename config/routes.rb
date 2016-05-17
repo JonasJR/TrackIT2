@@ -8,8 +8,9 @@ Rails.application.routes.draw do
   get 'proposals/approve'
 
   devise_for :users, :controllers => { registrations: 'registrations' }
-  
+
   resources :proposals do
+    resources :motivations
     get :approved
   end
   put 'proposals/:id/approved' => 'proposals#approved'

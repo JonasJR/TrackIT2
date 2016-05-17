@@ -3,4 +3,5 @@ class Proposal < ActiveRecord::Base
   scope :pending, -> { where(approved: false) }
 
   belongs_to :user
+  has_many :motivations
 end
