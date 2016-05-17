@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(version: 20160517092246) do
     t.boolean  "teacher"
     t.string   "firstname"
     t.string   "lastname"
+    t.boolean  "company"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
