@@ -73,6 +73,7 @@ class ProposalsController < ApplicationController
   def show
     @proposal = Proposal.find(params[:id])
     @username = @proposal.user.email
+    @motivations = @proposal.motivations
   end
 
 def create
