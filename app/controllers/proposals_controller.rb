@@ -8,7 +8,9 @@ class ProposalsController < ApplicationController
     else
       @proposals = Proposal.search(params[:search]).order("created_at desc").paginate(:per_page => 10, :page => params[:page])
     end
-    @myproposals = current_user.proposals
+    if signed_in?
+      @myproposals = current_user.proposals
+    end
   end
 
   def new
