@@ -80,7 +80,7 @@
                 <td class="col-md-4 clickable"><%= "#{m.user.name}  (#{m.user.email})" %></td>
                 <td class="col-md-4 clickable breakable"><%= truncate(m.motivation, length: 50) %></td>
                 <td class="col-md-1 centered"><%= link_to ('<i id="acceptglyph" class="glyphicon glyphicon-ok"></i>').html_safe, proposal_approved_path(m), method: :put, data: {:confirm => 'Are you sure?'} %></td>
-                <td class="col-md-1 centered"><%= link_to ('<i id="removeglyph" class="glyphicon glyphicon-remove"></i>').html_safe, destroy_proposal_motivation(m), method: :delete, data: {:confirm => 'Are you sure?'} %></td>
+                <td class="col-md-1 centered"><%= link_to ('<i id="removeglyph" class="glyphicon glyphicon-remove"></i>').html_safe, proposal_motivation_path(m.proposal, m), method: :delete, data: {:confirm => 'Are you sure?'} %></td>
               </tr>
             <% end %>
         </tbody>
