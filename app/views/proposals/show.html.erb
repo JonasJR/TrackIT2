@@ -7,7 +7,7 @@
 <div class="pull-right">
   <a class="btn btn-primary" id="apply_project" href="#">Apply for project <span class="caret"></span></a>
   <div class="hide" id="apply_form">
-    <%= form_for @motivation, :html => { :class => "form-horizontal" } do |f| %>
+    <%= form_for [@proposal, @motivation], :html => { :class => "form-horizontal" } do |f| %>
     <div class="form-group">
       <div class="col-md-2">
         <%= f.label :motivation, "Motivation: ", class: "control-label" %>
@@ -76,12 +76,14 @@
                 </tr>
             </thead>
             <tbody>
-                <% @motivations.each do |m| %>
-                <td class="col-md-4 clickable"><%= "#{m.user.name}  (#{m.user.email})" %></td>
-                <td class="col-md-4 clickable breakable"><%= truncate(m.motivation, length: 50) %></td>
-                <td class="col-md-1 centered"><%= link_to ('<i id="acceptglyph" class="glyphicon glyphicon-ok"></i>').html_safe, proposal_approved_path(m), method: :put, data: {:confirm => 'Are you sure?'} %></td>
-                <td class="col-md-1 centered"><%= link_to ('<i id="removeglyph" class="glyphicon glyphicon-remove"></i>').html_safe, proposal_motivation_path(m.proposal, m), method: :delete, data: {:confirm => 'Are you sure?'} %></td>
-              </tr>
+                <% if @motivations.count > 0 %>
+                  <% @motivations.each do |m| %>
+                  <td class="col-md-4 clickable"><%= "#{m.user.name}  (#{m.user.email})" %></td>
+                  <td class="col-md-4 clickable breakable"><%= truncate(m.motivation, length: 50) %></td>
+                  <td class="col-md-1 centered"><%= link_to ('<i id="acceptglyph" class="glyphicon glyphicon-ok"></i>').html_safe, proposal_approved_path(m), method: :put, data: {:confirm => 'Are you sure?'} %></td>
+                  <td class="col-md-1 centered"><%= link_to ('<i id="removeglyph" class="glyphicon glyphicon-remove"></i>').html_safe, proposal_motivation_path(m.proposal, m), method: :delete, data: {:confirm => 'Are you sure?'} %></td>
+                </tr>
+              <% end %>
             <% end %>
         </tbody>
     </table>
