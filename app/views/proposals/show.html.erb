@@ -5,9 +5,21 @@
 <% end %>
 <h1><%= @proposal.name %></h1>
 <div class="pull-right">
-  <%= submit_tag "Apply for project", :class => "btn btn-primary apply_project" %>
-  <div id="apply_form">
-
+  <a class="btn btn-primary" id="apply_project" href="#">Apply for project <span class="caret"></span></a>
+  <div class="hide" id="apply_form">
+    <%= form_for @motivation, :html => { :class => "form-horizontal" } do |f| %>
+    <div class="form-group">
+      <div class="col-md-2">
+        <%= f.label :motivation, "Motivation: ", class: "control-label" %>
+      </div>
+      <div class="col-md-6">
+        <%= f.text_area :motivation, class: "form-control", required: true %>
+      </div>
+    </div>
+    <div class="row" id="submit_button">
+    <%= f.submit "Apply", class: "col-xs-8 col-xs-offset-2 col-md-6 col-md-offset-2 btn btn-default btn-primary" %>
+    <% end %>
+    </div>
   </div>
 </div>
 <h2><%= @username %></h2>
