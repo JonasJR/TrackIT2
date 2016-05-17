@@ -46,4 +46,30 @@
       </div>
     </div>
   </div>
+  <div class="row colortest">
+      <h2>Approve students for projects</h2>
+      <table class="table table-hover order-table" id="approve-proposals" data-role="table">
+          <thead>
+              <tr>
+                  <th class="col-md-3">Name</th>
+                  <th class="col-md-4">Motivation</th>
+                  <th class="col-md-1 center">Accept</th>
+                  <th class="col-md-1 center">Decline</th>
+              </tr>
+          </thead>
+          <tbody>
+              <% @motivations.each do |m| %>
+              <% unless m.approved? %>
+              <tr data-link="<%= proposal_path(m) %>">
+                  <td class="col-md-3 clickable"><%= m.user.name %></td>
+                  <td class="col-md-4 clickable breakable"><%= truncate(m.description, length: 50) %></td>
+                  <td class="col-md-3 clickable"><%= m.motviation %></td>
+                  <td class="col-md-1 centered"><%= link_to ('<i id="acceptglyph" class="glyphicon glyphicon-ok"></i>').html_safe, proposal_approved_path(m), method: :put, data: {:confirm => 'Are you sure?'} %></td>
+                  <td class="col-md-1 centered"><%= link_to ('<i id="removeglyph" class="glyphicon glyphicon-remove"></i>').html_safe, m, data: {:confirm => 'Are you sure?'}, :method => :delete %></td>
+              </tr>
+              <% end %>
+              <% end %>
+          </tbody>
+      </table>
+  </div>
 </div>
