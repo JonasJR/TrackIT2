@@ -1,70 +1,43 @@
 <div id="approve">
-  <h2>Approve
-    <span class="spans">I</span>t</h2>
-  <div class="row">
-    <div class="col-xs-4">
-      <label for="admin-search">Search proposal:</label>
-      <input class="form-control light-table-filter" type="search" data-table="order-table" id="admin-search" placeholder="Proposal">
+    <h2>Approve
+        <span class="spans">I</span>t</h2>
+    <div class="row">
+        <div class="col-xs-4">
+            <label for="admin-search">Search proposal:</label>
+            <input class="form-control light-table-filter" type="search" data-table="order-table" id="admin-search" placeholder="Proposal">
+        </div>
     </div>
-  </div>
-  <div class="row colortest">
-    <h2>Approve projects</h2>
-    <table class="table table-hover order-table" id="approve-proposals" data-role="table">
-      <thead>
-        <tr>
-          <th class="col-md-3">Name</th>
-          <th class="col-md-4">Description</th>
-          <th class="col-md-3">Category</th>
-          <th class="col-md-1 center">Approve</th>
-          <th class="col-md-1 center">Remove</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @proposals.each do |p| %>
-        <% unless p.approved? %>
-        <tr data-link="<%= proposal_path(p) %>">
-          <td class="col-md-3 clickable"><%= p.name %></td>
-          <td class="col-md-4 clickable breakable"><%= truncate(p.description, length: 50) %></td>
-          <td class="col-md-3 clickable"><%= p.category %></td>
-          <td class="col-md-1 centered"><%= link_to ('<i id="acceptglyph" class="glyphicon glyphicon-ok"></i>').html_safe, proposal_approved_path(p), method: :put, data: {:confirm => 'Are you sure?'} %></td>
-          <td class="col-md-1 centered"><%= link_to ('<i id="removeglyph" class="glyphicon glyphicon-remove"></i>').html_safe, p, data: {:confirm => 'Are you sure?'}, :method => :delete %></td>
-        </tr>
-        <% end %>
-        <% end %>
-      </tbody>
-    </table>
-  </div>
-</div>
-<div class="row colortest">
-  <h2>Approve students for projects</h2>
-  <table class="table table-hover order-table" id="approve-proposals" data-role="table">
-    <thead>
-      <tr>
-        <th class="col-md-3">Name</th>
-        <th class="col-md-4">Description</th>
-        <th class="col-md-1 center">Accept</th>
-        <th class="col-md-1 center">Decline</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @proposals.each do |p| %>
-      <% unless p.approved? %>
-      <tr data-link="<%= proposal_path(p) %>">
-        <td class="col-md-3 clickable"><%= p.name %></td>
-        <td class="col-md-4 clickable breakable"><%= truncate(p.description, length: 50) %></td>
-        <td class="col-md-3 clickable"><%= p.category %></td>
-        <td class="col-md-1 centered"><%= link_to ('<i id="acceptglyph" class="glyphicon glyphicon-ok"></i>').html_safe, proposal_approved_path(p), method: :put, data: {:confirm => 'Are you sure?'} %></td>
-        <td class="col-md-1 centered"><%= link_to ('<i id="removeglyph" class="glyphicon glyphicon-remove"></i>').html_safe, p, data: {:confirm => 'Are you sure?'}, :method => :delete %></td>
-      </tr>
-      <% end %>
-      <% end %>
-    </tbody>
-  </table>
-</div>
+    <div class="row colortest">
+        <h2>Approve projects</h2>
+        <table class="table table-hover order-table" id="approve-proposals" data-role="table">
+            <thead>
+                <tr>
+                    <th class="col-md-3">Name</th>
+                    <th class="col-md-4">Description</th>
+                    <th class="col-md-3">Category</th>
+                    <th class="col-md-1 center">Approve</th>
+                    <th class="col-md-1 center">Remove</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% @proposals.each do |p| %>
+                <% unless p.approved? %>
+                <tr data-link="<%= proposal_path(p) %>">
+                    <td class="col-md-3 clickable"><%= p.name %></td>
+                    <td class="col-md-4 clickable breakable"><%= truncate(p.description, length: 50) %></td>
+                    <td class="col-md-3 clickable"><%= p.category %></td>
+                    <td class="col-md-1 centered"><%= link_to ('<i id="acceptglyph" class="glyphicon glyphicon-ok"></i>').html_safe, proposal_approved_path(p), method: :put, data: {:confirm => 'Are you sure?'} %></td>
+                    <td class="col-md-1 centered"><%= link_to ('<i id="removeglyph" class="glyphicon glyphicon-remove"></i>').html_safe, p, data: {:confirm => 'Are you sure?'}, :method => :delete %></td>
+                </tr>
+                <% end %>
+                <% end %>
+            </tbody>
+        </table>
+    </div>
 </div>
 <%= will_paginate @proposals, renderer: BootstrapPagination::Rails, previous_label: "«", next_label:"»", inner_window:1, outer_window: 1 %>
 <script type="text/javascript">
-  $(".clickable").click(function () {
-    window.location = $(this).parent().data("link")
-  });
+    $(".clickable").click(function () {
+        window.location = $(this).parent().data("link")
+    });
 </script>
