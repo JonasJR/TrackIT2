@@ -4,6 +4,12 @@
 <% end %>
 <% end %>
 <h1><%= @proposal.name %></h1>
+<div class="pull-right">
+  <%= submit_tag "Apply for project", :class => "btn btn-primary apply_project" %>
+  <div id="apply_form">
+
+  </div>
+</div>
 <h2><%= @username %></h2>
 <small>Submitted at:
     <b>
