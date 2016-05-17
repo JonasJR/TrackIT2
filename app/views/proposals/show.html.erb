@@ -27,7 +27,14 @@
 <h2><%= @username %></h2>
 <small>Submitted at:
     <b>
-        <%= @proposal.created_at %></b>
+        <%= @proposal.created_at %>
+    </b>
+</small>
+<br>
+<small>Participants:
+    <% @participants.each do |participant| %>
+      <%= "<b>#{participant.user.name} </b>(#{participant.user.email}) ".html_safe %>
+    <% end %>
 </small>
 <hr>
 <div class="row">
@@ -78,12 +85,12 @@
                 </tr>
             </thead>
             <tbody>
-                <% if @motivations.count > 0 %>
-                  <% @motivations.each do |m| %>
+                <% if @all_motivations.count > 0 %>
+                  <% @all_motivations.each do |m| %>
                   <td class="col-md-4 clickable"><%= "#{m.user.name}  (#{m.user.email})" %></td>
                   <td class="col-md-4 clickable breakable"><%= truncate(m.motivation, length: 50) %></td>
-                  <td class="col-md-1 centered"><%= link_to ('<i id="acceptglyph" class="glyphicon glyphicon-ok"></i>').html_safe, proposal_approved_path(m), method: :put, data: {:confirm => 'Are you sure?'} %></td>
-                  <td class="col-md-1 centered"><%= link_to ('<i id="removeglyph" class="glyphicon glyphicon-remove"></i>').html_safe, proposal_motivation_path(m.proposal, m), method: :delete, data: {:confirm => 'Are you sure?'} %></td>
+                  <td class="col-md-1 centered"><%= link_to ('<i id="acceptglyph" class="glyphicon glyphicon-ok"></i>').html_safe, proposal_motivation_approve_path(m.proposal, m), method: :post, data: { confirm: 'Are you sure?' } %></td>
+                  <td class="col-md-1 centered"><%= link_to ('<i id="removeglyph" class="glyphicon glyphicon-remove"></i>').html_safe, proposal_motivation_path(m.proposal, m), method: :delete, data: { confirm: 'Are you sure?' } %></td>
                 </tr>
               <% end %>
             <% end %>

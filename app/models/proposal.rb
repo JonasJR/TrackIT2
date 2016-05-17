@@ -3,6 +3,7 @@ class Proposal < ActiveRecord::Base
   scope :pending, -> { where(approved: false) }
 
   belongs_to :user
+  has_many :participants
   has_many :motivations
 
   def self.search(query)

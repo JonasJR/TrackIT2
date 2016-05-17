@@ -75,8 +75,9 @@ class ProposalsController < ApplicationController
   def show
     @proposal = Proposal.find(params[:id])
     @username = @proposal.user.email
-    @motivations = @proposal.motivations
+    @all_motivations = Motivation.where(proposal_id: params[:id])
     @motivation =  @proposal.motivations.build
+    @participants = @proposal.participants
   end
 
 def create
