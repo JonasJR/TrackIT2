@@ -1,6 +1,7 @@
 class MotivationsController < ActionController::Base
 
   def create
+    session[:return_to] ||= request.referer
     if signed_in?
       unless current_user.try(:company?)
         motivation = Motivation.new(motivation_params)
@@ -8,10 +9,13 @@ class MotivationsController < ActionController::Base
         motivation.proposal_id = params[:proposal_id]
 
         if motivation.save
-          redirect_to proposals_url
+          proposal_name = Proposal.find_by(id: motivation.proposal_id)
+          UserMailer.apply_email(motivation, proposal_name).deliver_now
+
+          redirect_to session.delete(:return_to)
           flash[:success] = "Applied successfully"
         else
-          render :show
+          redirect_to session.delete(:return_to)
           flash[:error] = "An error occured, please try again!"
         end
       end
@@ -40,6 +44,8 @@ class MotivationsController < ActionController::Base
     if current_user.try(:teacher)
       motivation = Motivation.find(params[:motivation_id])
       Participant.create(proposal_id: motivation.proposal.id, user_id: motivation.user.id)
+      proposal_name = Proposal.find_by(id: motivation.proposal_id)
+      UserMailer.apply_approved_email(motivation, proposal_name).deliver_now
       motivation.destroy
       redirect_to session.delete(:return_to)
     else
