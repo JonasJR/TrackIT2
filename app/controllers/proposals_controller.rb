@@ -47,8 +47,9 @@ class ProposalsController < ApplicationController
   end
 
   def destroy
-    if (current_user.try(:teacher?)) or (@proposal.user_id == current_user.id)
-      unless (current_user.try(:teacher?)) and (!@proposal.approved?)
+    @deleteproposal = Proposal.find(params[:id])
+    if (current_user.try(:teacher?)) or (@deleteproposal.user_id == current_user.id)
+      if (!current_user.try(:teacher?)) and (@deleteproposal.approved?)
         flash[:error] = "Error, you don't have permission to remove at this stage"
         redirect_to root_url
       else
