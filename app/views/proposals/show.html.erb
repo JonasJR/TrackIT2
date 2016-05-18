@@ -10,15 +10,15 @@
   <div class="" id="apply_form">
     <%= form_for [@proposal, @motivation], :html => { :class => "form-horizontal" } do |f| %>
     <div class="form-group">
-      <div class="col-md-2">
-        <%= f.label :motivation, "Motivation: ", class: "control-label" %>
+      <div class="row">
+          <%= f.label :motivation, "Motivation: ", class: "control-label" %>
       </div>
-      <div class="col-md-6">
-        <%= f.text_area :motivation, class: "form-control", required: true %>
+      <div class="row">
+          <%= f.text_area :motivation, class: "form-control", required: true %>
       </div>
     </div>
     <div class="row" id="submit_button">
-    <%= f.submit "Apply", class: "col-xs-8 col-xs-offset-2 col-md-6 col-md-offset-2 btn btn-default btn-primary" %>
+    <%= f.submit "Apply", class: "col-md-12 btn btn-default btn-primary" %>
     <% end %>
     </div>
   </div>
