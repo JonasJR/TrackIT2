@@ -5,6 +5,7 @@ class RegistrationsController < Devise::RegistrationsController
   end
 
   def after_sign_up_path_for(resource)
+    UserMailer.registration_email().deliver_now
     flash[:warning] = "Please edit your profile information in the top right hand corner!"
     root_url
   end
