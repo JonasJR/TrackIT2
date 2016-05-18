@@ -35,7 +35,7 @@ class MotivationsController < ActionController::Base
       motivation.destroy
       redirect_to session.delete(:return_to)
     else
-      redirect_to session.delete(:return_to), notice: 'You must be logged in as i teacher to delete motivations.'
+      redirect_to session.delete(:return_to), notice: 'You must be logged in as a teacher to delete motivations.'
     end
   end
 
