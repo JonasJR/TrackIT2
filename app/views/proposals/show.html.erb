@@ -4,7 +4,7 @@
 <% end %>
 <% end %>
 <h1><%= @proposal.name %></h1>
-<% if !current_user.try(:company?) and signed_in?%>
+<% if !current_user.try(:company?) and signed_in? and @proposal.approved?%>
 <div class="pull-right">
   <a class="btn btn-primary" id="apply_project" href="">Apply for project
     <span class="caret"></span>

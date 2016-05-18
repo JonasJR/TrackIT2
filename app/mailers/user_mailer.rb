@@ -11,7 +11,7 @@ class UserMailer < ApplicationMailer
     mail to: user.email
   end
 
-  def registration_email()
+  def registration_email(user)
     mail to: user.email
   end
 
