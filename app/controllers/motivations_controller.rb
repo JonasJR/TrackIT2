@@ -32,6 +32,8 @@ class MotivationsController < ActionController::Base
     session[:return_to] ||= request.referer
     if current_user.try(:teacher)
       motivation = Motivation.find(params[:id])
+      proposal_name = Proposal.find_by(id: motivation.proposal_id)
+      UserMailer.apply_declined_email(motivation, proposal_name).deliver_now
       motivation.destroy
       redirect_to session.delete(:return_to)
     else

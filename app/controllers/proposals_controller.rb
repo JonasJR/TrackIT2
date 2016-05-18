@@ -50,6 +50,7 @@ class ProposalsController < ApplicationController
     if current_user.try(:teacher?)
       session[:return_to] ||= request.referer
       @deleteproposal = Proposal.find(params[:id])
+      UserMailer.declined_email(current_user.name, @deleteproposal).deliver_now
       @deleteproposal.destroy
       flash[:success] = "Proposal removed!"
       redirect_to session.delete(:return_to)
@@ -82,11 +83,12 @@ class ProposalsController < ApplicationController
 
 def create
   if signed_in?
-    proposal = current_user.proposals.build(proposal_params)
-    proposal.approved = false
+    @proposal = current_user.proposals.build(proposal_params)
+    @proposal.approved = false
 
-    if proposal.save
+    if @proposal.save
       redirect_to proposals_url
+      UserMailer.proposal_submitted(@proposal).deliver_now
       flash[:success] = "Proposal submited with no errors"
     else
       render :new
