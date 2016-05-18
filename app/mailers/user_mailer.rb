@@ -23,4 +23,10 @@ class UserMailer < ApplicationMailer
     mail to: motivation.user.email
   end
 
+  def apply_approved_email(motivation, proposal_name)
+    @motivation = motivation
+    @proposal_name = proposal_name
+    mail to: motivation.user.email
+  end
+
 end
