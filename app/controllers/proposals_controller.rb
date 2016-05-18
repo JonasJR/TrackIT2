@@ -47,13 +47,18 @@ class ProposalsController < ApplicationController
   end
 
   def destroy
-    if current_user.try(:teacher?)
-      session[:return_to] ||= request.referer
-      @deleteproposal = Proposal.find(params[:id])
-      UserMailer.declined_email(current_user.name, @deleteproposal).deliver_now
-      @deleteproposal.destroy
-      flash[:success] = "Proposal removed!"
-      redirect_to session.delete(:return_to)
+    if (current_user.try(:teacher?)) or (@proposal.user_id == current_user.id)
+      unless (current_user.try(:teacher?)) and (!@proposal.approved?)
+        flash[:error] = "Error, you don't have permission to remove at this stage"
+        redirect_to root_url
+      else
+        session[:return_to] ||= request.referer
+        @deleteproposal = Proposal.find(params[:id])
+        UserMailer.declined_email(current_user.name, @deleteproposal).deliver_now
+        @deleteproposal.destroy
+        flash[:success] = "Proposal removed!"
+        redirect_to session.delete(:return_to)
+      end
     else
       flash[:error] = "Error, you don't have permission to remove"
       redirect_to root_url
